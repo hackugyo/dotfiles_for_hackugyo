@@ -97,29 +97,7 @@
 
 ;;auto-installしたもの
 ;; (install-elisp "http://www.emacswiki.org/emacs/download/redo+.el")
-
-
-
-
-
-;; Rakefileもruby-modeで動かす
-;; http://jampin.blog20.fc2.com/blog-entry-117.html
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-
-
-;;auto-installの設定
-(when (require 'auto-install)
-  ;; インストールディレクトリを設定する
-  (setq auto-install-directory "~/.emacs.d/elisp"/)
-  ;; EmacsWiki に登録されているelisp の名前を取得する
-  (auto-install-update-emacswiki-package-name t)
-  ;; 必要であればプロキシの設定を行う
-  ;; (setq url-proxy-services '(("http" . "localhost:8339")))
-  ;; install-elispの関数を利用可能にする
-  (auto-install-compatibility-setup))
-
-;;auto-installしたもの
-;; (install-elisp "http://www.emacswiki.org/emacs/download/redo+.el")
+;; (install-elisp "http://docutils.sourceforge.net/tools/editors/emacs/rst.el")
 
 ;; package.el(ELPA)の設定
 (when (require 'package nil t)
@@ -131,6 +109,11 @@
   ;; インストールしたパッケージにロードパスを通して読み込む
   (package-initialize))
 
+;; インストールしたもの
+;; Anything
+;; htmlize
+;; auto-complete
+
 ;; auto-completeの設定
 (when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories
@@ -138,3 +121,50 @@
   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (ac-config-default))
 
+
+;;; rst.el --- Mode for viewing and editing reStructuredText
+;; 設定サンプル：http://d.hatena.ne.jp/CortYuming/20081231/p1
+(setq auto-mode-alist
+      (append '(
+               ;("\\.txt$" . rst-mode)
+               ("\\.rst$" . rst-mode)
+               ) auto-mode-alist))
+;; slidesを動かす
+(add-hook 'rst-mode-hook
+          (lambda ()
+            (setq rst-slides-program "open -a Firefox")
+            ))
+;; バックグラウンドが暗い場合の設定
+; (setq frame-background-mode 'dark)
+
+;; cua-modeの設定
+(cua-mode t) ; cua-modeをオン
+(setq cua-enable-cua-keys nil) ; cuaキーバインドをオフ
+
+;; js-mode の基本設定
+(defun js-indent-hook()
+  ;; インデント幅を2にする
+  (setq js-indent-level 2
+        js-expr-indent-offset 2
+        indent-tabs-mode nil)
+  ;; switch文のcaseラベルをインデントする関数を定義する
+  (defun my-js-indent-line ()
+    (interactive)
+    (let* ((parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status)))
+      (back-to-indentation)
+      (if (looking-at "case\\s-")
+          (indent-line-to (+ indentation 2))
+        (js-indent-line))
+      (when (> offset 0) (forward-char offset))))
+  ;; caseラベルのインデント処理をセットする
+  (set (make-local-variable 'indent-line-function) 'my-js-indent-line)
+  )
+
+;; js-modeの起動時にhookを追加
+(add-hook 'js-mode-hook 'js-indent-hook)
+
+;; js2-modeの起動時にjs-modeのインデント機能を追加
+(add-hook 'js2-mode-hook 'js-indent-hook)
+      
