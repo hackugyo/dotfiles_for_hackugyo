@@ -187,3 +187,33 @@
 ;; インデント幅調整
 (setq nxml-child-indent 2);初期値は2
 (setq nxml-attribute-indent 4);初期値は4
+
+;====================================
+;;jaspace.el を使った全角空白、タブ、改行表示モード
+;;切り替えは M-x jaspace-mode-on or -off
+;;http://ubulog.blogspot.jp/2007/09/emacs_09.html
+;====================================
+(require 'jaspace)
+;; 全角空白を表示させる。
+(setq jaspace-alternate-jaspace-string "□")
+;; 改行記号を表示させる。
+(setq jaspace-alternate-eol-string "↓\n")
+;; タブ記号を表示。
+(setq jaspace-highlight-tabs t) ; highlight tabs
+
+;====================================
+;; セッション
+;; http://ubulog.blogspot.jp/2007/09/emacs_15.html
+;====================================
+;;Emacsを終了してもファイルを編集してた位置や
+;;minibuffer への入力内容を覚えててくれます。
+(when (require 'session nil t)
+  (setq session-initialize '(de-saveplace session keys menus places)
+      session-globals-include '((kill-ring 50)
+                                (session-file-alist 500 t)
+                                (file-name-history 10000)))
+  ;; これがないと file-name-history に500個保存する前に max-string に達する
+  (setq session-globals-max-string 100000000)
+  ;; デフォルトでは30!
+  (setq history-length t)
+  (add-hook 'after-init-hook 'session-initialize))
