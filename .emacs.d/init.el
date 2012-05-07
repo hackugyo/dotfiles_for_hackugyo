@@ -141,6 +141,9 @@
 (cua-mode t) ; cua-modeをオン
 (setq cua-enable-cua-keys nil) ; cuaキーバインドをオフ
 
+;; js2-modeを利用する設定（本来はjs2-mode-autoloads.elに記述ずみのはずだが？）
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
 ;; js-mode の基本設定
 (defun js-indent-hook()
   ;; インデント幅を2にする
