@@ -196,13 +196,25 @@
 ;;切り替えは M-x jaspace-mode-on or -off
 ;;http://ubulog.blogspot.jp/2007/09/emacs_09.html
 ;====================================
-(require 'jaspace)
+;;(require 'jaspace)
 ;; 全角空白を表示させる。
-(setq jaspace-alternate-jaspace-string "□")
+;;(setq jaspace-alternate-jaspace-string "□")
 ;; 改行記号を表示させる。
-(setq jaspace-alternate-eol-string "↓\n")
+;;(setq jaspace-alternate-eol-string "↓\n")
 ;; タブ記号を表示。
-(setq jaspace-highlight-tabs t) ; highlight tabs
+;;(setq jaspace-highlight-tabs t) ; highlight tabs
+
+;====================================
+;;whitespaceパッケージを利用して全角スペース表示
+;;http://d.hatena.ne.jp/tunefs/20100811/p1
+;====================================
+(setq whitespace-style
+      '(tabs spaces space-mark))
+(setq whitespace-space-regexp "\\( +\\|\u3000+\\)")
+(setq whitespace-display-mappings
+      '((space-mark ?\u3000 [?\u25a1])))
+(require 'whitespace)
+(global-whitespace-mode 1)
 
 ;====================================
 ;; セッション
