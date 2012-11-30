@@ -61,9 +61,6 @@
 (add-to-list 'default-mode-line-format
              '(:eval (count-lines-and-chars)))
 
-;;タイトルバーにファイルのフルパスを表示
-(setq frame-title-format "%f")
-
 ;;スタートアップ非表示
 (setq inhibit-startup-screen t)
 ;; scratchの初期メッセージ消去
@@ -72,9 +69,11 @@
 ;;折り返しトグルコマンドのエイリアスを設定
 (define-key global-map  (kbd "C-c l") 'toggle-truncate-lines)
 
-;; バックアップファイルの作成場所をシステムのTempディレクトリに変更する
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+;;yankとOSのクリップボードとを共有
+;; http://qiita.com/items/f5ccc2b027a9aaa13fe4
+;; Mac OS Xの場合は上記だとだめかも？ 
+;; http://blog.lathi.net/articles/2007/11/07/sharing-the-mac-clipboard-with-emacs
+
 ;; バックアップファイルの作成場所をシステムのTempディレクトリに変更する
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -232,3 +231,52 @@
   ;; デフォルトでは30!
   (setq history-length t)
   (add-hook 'after-init-hook 'session-initialize))
+
+;;; windmove
+;; http://d.hatena.ne.jp/tomoya/20120512/1336832436
+;; MacのCommand+やじるしでウィンドウを移動する
+(windmove-default-keybindings 'super)
+
+;====================================
+;Mac OSXのEmacs 23でURLをデフォルトのブラウザで起動させる。
+;====================================
+(defun browse-url-default-macosx-browser (url &optional new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (if (and new-window (>= emacs-major-version 23))
+      (ns-do-applescript
+       (format
+        (concat "tell application \"Safari\" to make document with properties {URL:\"%s\"}\n"
+                "tell application \"Safari\" to activate") url))
+    (start-process (concat "open " url) nil "open" url)))
+(put 'upcase-region 'disabled nil)
+
+;====================================
+;現在の時刻を入力
+;http://www.bookshelf.jp/soft/meadow_37.html#SEC547
+;====================================
+(defun my-insert-time ()
+  (interactive)
+  (insert (concat
+           "Time:" (format-time-string "%H:%M:%S"))))
+
+;====================================
+;REST記法のリンクを作成
+;====================================
+(defun my-insert-rest-link ()
+  (interactive)
+  (insert (concat
+           "`リンクテキスト <http://>`_")))
+
+;====================================
+;linum-modeを軽くする
+; http://d.hatena.ne.jp/daimatz/20120215/1329248780
+;====================================
+(setq linum-delay t)
+(defadvice linum-schedule (around my-linum-schedule () activate)
+  (run-with-idle-timer 0.2 nil #'linum-update-current))
+
+;====================================
+;Option + ¥でバックスラッシュを入力する
+; http://www.atotok.com/labo/diary/20111118221123.html
+;====================================
+(define-key global-map [?\M-¥] "\\")

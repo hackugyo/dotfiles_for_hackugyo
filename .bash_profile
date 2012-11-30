@@ -1,8 +1,9 @@
-PATH=$PATH:/Applications/android-sdk-macosx/tools
+PATH=$PATH:/Applications/android-sdk-macosx/tools:/Users/kwatanabe/projects/android/android-ndk-r8b
 
 # Android
 ANDROID_HOME=/Users/kwatanabe/android-sdks/
 PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
 MANPATH=/opt/local/man:$MANPATH
 
