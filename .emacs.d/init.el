@@ -1,3 +1,22 @@
+;; 環境変数を基準に
+;; http://sakito.jp/emacs/emacsshell.html#path
+;; より下に記述した物が PATH の先頭に追加されます
+(dolist (dir (list
+              "/sbin"
+              "/usr/sbin"
+              "/bin"
+              "/usr/bin"
+              "/opt/local/bin"
+              "/sw/bin"
+              "/usr/local/bin"
+              (expand-file-name "~/bin")
+              (expand-file-name "~/.emacs.d/bin")
+              ))
+ ;; PATH と exec-path に同じ物を追加します
+ (when (and (file-exists-p dir) (not (member dir exec-path)))
+   (setenv "PATH" (concat dir ":" (getenv "PATH")))
+   (setq exec-path (append (list dir) exec-path))))
+
 
 ;; Emacs 23より前のバージョン用に変数定義
 (when (< emacs-major-version 23)
@@ -260,12 +279,24 @@
            "Time:" (format-time-string "%H:%M:%S"))))
 
 ;====================================
+;REST記法
+;====================================
+
 ;REST記法のリンクを作成
 ;====================================
 (defun my-insert-rest-link ()
   (interactive)
   (insert (concat
            "`リンクテキスト <http://>`_")))
+
+
+;REST記法の中見出しを作成
+;====================================
+(defun my-insert-rest-headword-middle ()
+  (interactive)
+  (insert (concat
+           "====================")))
+
 
 ;====================================
 ;linum-modeを軽くする
@@ -280,3 +311,211 @@
 ; http://www.atotok.com/labo/diary/20111118221123.html
 ;====================================
 (define-key global-map [?\M-¥] "\\")
+
+;====================================
+;Powerline: fancy status ine
+;====================================
+(require 'powerline)
+
+(defun arrow-right-xpm (color1 color2)
+  "Return an XPM right arrow string representing."
+  (format "/* XPM */
+static char * arrow_right[] = {
+\"12 24 2 1\",
+\". c %s\",
+\"  c %s\",
+\".           \",
+\"..          \",
+\"...         \",
+\"....        \",
+\".....       \",
+\"......      \",
+\".......     \",
+\"........    \",
+\".........   \",
+\"..........  \",
+\"........... \",
+\"............\",
+\"........... \",
+\"..........  \",
+\".........   \",
+\"........    \",
+\".......     \",
+\"......      \",
+\".....       \",
+\"....        \",
+\"...         \",
+\"..          \",
+\".           \",
+\"            \"};"  color1 color2))
+
+
+
+(defun arrow-left-xpm (color1 color2)
+  "Return an XPM right arrow string representing."
+  (format "/* XPM */
+static char * arrow_right[] = {
+\"12 24 2 1\",
+\". c %s\",
+\"  c %s\",
+\"           .\",
+\"          ..\",
+\"         ...\",
+\"        ....\",
+\"       .....\",
+\"      ......\",
+\"     .......\",
+\"    ........\",
+\"   .........\",
+\"  ..........\",
+\" ...........\",
+\"............\",
+\" ...........\",
+\"  ..........\",
+\"   .........\",
+\"    ........\",
+\"     .......\",
+\"      ......\",
+\"       .....\",
+\"        ....\",
+\"         ...\",
+\"          ..\",
+\"           .\",
+\"            \"};"  color2 color1))
+
+(defconst color1 "#6699ff")
+(defconst color2 "#ff66ff")
+(defconst color3 "#696969")
+
+(defvar arrow-right-1 (create-image (arrow-right-xpm color1 color2) 'xpm t :ascent 'center))
+(defvar arrow-right-2 (create-image (arrow-right-xpm color2 color3) 'xpm t :ascent 'center))
+(defvar arrow-right-3 (create-image (arrow-right-xpm color3 "None") 'xpm t :ascent 'center))
+(defvar arrow-left-1  (create-image (arrow-left-xpm color2 color1) 'xpm t :ascent 'center))
+(defvar arrow-left-2  (create-image (arrow-left-xpm "None" color2) 'xpm t :ascent 'center))
+
+(setq-default mode-line-format
+ (list  '(:eval (concat (propertize " %* %b " 'face 'mode-line-color-1)
+                        (propertize " " 'display arrow-right-1)))
+        '(:eval (concat (propertize " %Z " 'face 'mode-line-color-2)
+                        (propertize " " 'display arrow-right-2)))
+        '(:eval (concat (propertize " %m " 'face 'mode-line-color-3)
+                        (propertize " " 'display arrow-right-3)))
+
+        ;; Justify right by filling with spaces to right fringe - 16
+        ;; (16 should be computed rahter than hardcoded)
+        '(:eval (propertize " " 'display '((space :align-to (- right-fringe 17)))))
+
+        '(:eval (concat (propertize " " 'display arrow-left-2)
+                        (propertize " %p " 'face 'mode-line-color-2)))
+        '(:eval (concat (propertize " " 'display arrow-left-1)
+                        (propertize "%4l:%2c  " 'face 'mode-line-color-1)))
+))
+
+(make-face 'mode-line-color-1)
+(set-face-attribute 'mode-line-color-1 nil
+                    :foreground "#fff"
+                    :background color1)
+
+(make-face 'mode-line-color-2)
+(set-face-attribute 'mode-line-color-2 nil
+                    :foreground "#fff"
+                    :background color2)
+
+(make-face 'mode-line-color-3)
+(set-face-attribute 'mode-line-color-3 nil
+                    :foreground "#fff"
+                    :background color3)
+
+(set-face-attribute 'mode-line nil
+                    :foreground "#fff"
+                    :background "#000"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :foreground "#fff"
+                    :background "#000")
+
+;; smooth-scroll
+(require 'smooth-scroll)
+(smooth-scroll-mode t)
+
+;; filecache
+;;あらかじめディレクトリ名のリストを作成しておくと、カレントディレクトリがどこであるかにかかわらず、指定したディレクトリ以下のファイルはパスを辿らずに簡単に補完して開くことができます。
+;; http://maruta.be/intfloat_staff/53
+(require 'filecache)
+(file-cache-add-directory-list
+  (list "~/Developer/" "~/daily_working_log/log/")) ;; ディレクトリを追加
+; (file-cache-add-file-list
+;  (list "~/memo/memo.txt")) ;; ファイルを追加
+(define-key minibuffer-local-completion-map "\C-c\C-i"
+  'file-cache-minibuffer-complete)
+; Emacs起動後に作成し阿多ファイルを対象にするには， M-x file-cache-add-directory-recursively
+
+;; dired を使って、一気にファイルの coding system (漢字) を変換する
+;; m でマークして T で一括変換
+;; http://d.hatena.ne.jp/gan2/20070705/1183640419
+(require 'dired-aux)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key (current-local-map) "T"
+              'dired-do-convert-coding-system)))
+
+(defvar dired-default-file-coding-system nil
+  "*Default coding system for converting file (s).")
+
+(defvar dired-file-coding-system 'no-conversion)
+
+(defun dired-convert-coding-system ()
+  (let ((file (dired-get-filename))
+        (coding-system-for-write dired-file-coding-system)
+        failure)
+    (condition-case err
+        (with-temp-buffer
+          (insert-file file)
+          (write-region (point-min) (point-max) file))
+
+    (if (not failure)
+        nil
+      (dired-log "convert coding system error for %s:\n%s\n" file failure)
+      (dired-make-relative file))))
+
+(defun dired-do-convert-coding-system (coding-system &optional arg)
+  "Convert file (s) in specified coding system."
+  (interactive
+   (list (let ((default (or dired-default-file-coding-system
+                            buffer-file-coding-system)))
+           (read-coding-system
+            (format "Coding system for converting file (s) (default, %s): "
+                    default)
+            default))
+         current-prefix-arg))
+  (check-coding-system coding-system)
+  (setq dired-file-coding-system coding-system)
+  (dired-map-over-marks-check
+   (function dired-convert-coding-system) arg 'convert-coding-system t))
+
+;; json-modeのインデントの設定
+;; C-x beautify-jsonに合わせた
+;; http://blog.ainam.me/2011/12/13/emacs-js2-mode-indent/
+ (add-hook 'json-mode-hook
+           #'(lambda ()
+               (require 'js)
+               (setq js-indent-level 2
+                     js-expr-indent-offset 2
+                     indent-tabs-mode nil)
+               (set (make-local-variable 'indent-line-function) 'js-indent-line)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; android-mode
+;; http://qiita.com/items/bab8c1d27255b03b9ee1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'android-mode)
+
+;; Android SDKのパス
+(setq android-mode-sdk-dir "~/android-sdks")
+
+;; コマンド用プレフィクス
+;; ここで設定したキーバインド＋android-mode.elで設定された文字、で、各種機能を利用できます
+(setq android-mode-key-prefix (kbd "C-c C-c"))
+
+;; デフォルトで起動するエミュレータ名
+(setq android-mode-avd "ICS15_on_x86")
