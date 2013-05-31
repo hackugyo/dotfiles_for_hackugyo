@@ -519,3 +519,11 @@ static char * arrow_right[] = {
 
 ;; デフォルトで起動するエミュレータ名
 (setq android-mode-avd "ICS15_on_x86")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ruby-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; ruby-encoding-mapがRuby1.9の扱えないエンコードを入れてしまうので抑制
+;; http://d.hatena.ne.jp/arikui1911/20091126/1259217255
+(add-to-list 'ruby-encoding-map '(japanese-cp932 . cp932))
