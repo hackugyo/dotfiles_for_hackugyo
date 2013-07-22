@@ -476,7 +476,7 @@ static char * arrow_right[] = {
     (if (not failure)
         nil
       (dired-log "convert coding system error for %s:\n%s\n" file failure)
-      (dired-make-relative file))))
+      (dired-make-relative file)))))
 
 (defun dired-do-convert-coding-system (coding-system &optional arg)
   "Convert file (s) in specified coding system."
@@ -526,4 +526,37 @@ static char * arrow_right[] = {
 
 ;; ruby-encoding-mapがRuby1.9の扱えないエンコードを入れてしまうので抑制
 ;; http://d.hatena.ne.jp/arikui1911/20091126/1259217255
-(add-to-list 'ruby-encoding-map '(japanese-cp932 . cp932))
+;; (add-to-list 'ruby-encoding-map '(japanese-cp932 . cp932))
+;; http://atssh-knk.iobb.net/blog/?p=538
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (add-to-list 'ruby-encoding-map '(japanese-cp932 . cp932))
+             (add-to-list 'ruby-encoding-map '(undecided . cp932))
+             )
+          )
+
+
+;;; init.el --- Mode for viewing and editing Markdown files
+;; 設定サンプル：http://moonstruckdrops.github.io/blog/2013/03/24/markdown-mode/
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;;; saveされたらgit nowする
+;; 
+;; shell-commandの代わりにcall-process-shell-command
+;; http://stackoverflow.com/questions/11613974/how-can-the-shell-command-output-buffer-be-kept-in-the-background
+;; git 2.0からは，サブディレクトリの中にいるときgit管理下ディレクトリをupdateできないようになるので，
+;; コロンをつけて全部updateしてほしい旨を明示した
+(when (executable-find "git")
+  (defun gitnow-after-save-hook ()
+    (call-process-shell-command
+     (format
+      "git now : &"
+      (buffer-name (current-buffer)))
+     nil "*Shell Command Output*" t)))
+
+;; (when (executable-find "git")
+;;  (add-hook 'after-save-hook 'gitnow-after-save-hook))
+
+;; (remove-hook 'after-save-hook 'gitnow-after-save-hook)
