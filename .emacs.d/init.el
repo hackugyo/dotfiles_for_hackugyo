@@ -554,9 +554,34 @@ static char * arrow_right[] = {
      (format
       "git now : &"
       (buffer-name (current-buffer)))
-     nil "*Shell Command Output*" t)))
+     nil "*Shell Command Output*" t))
+  (add-hook 'after-save-hook 'gitnow-after-save-hook)
+  )
 
-;; (when (executable-find "git")
-;;  (add-hook 'after-save-hook 'gitnow-after-save-hook))
+(defun gitnow-after-save ()
+  (interactive)
+  (when (executable-find "git")
+    (add-hook 'after-save-hook 'gitnow-after-save-hook)))
 
-;; (remove-hook 'after-save-hook 'gitnow-after-save-hook)
+(defun gitnow-remove-after-save ()
+  (interactive)
+  (when (executable-find "git")
+    (remove-hook 'after-save-hook 'gitnow-after-save-hook)))
+
+;; http://pokutech.hatenablog.com/entry/2012/07/14/233900
+;; バッファローカルに，shell-commandを実行する一時的なafter-save-hookを追加するelispを追加する．
+;; 動作しない．
+(defun temp-shell-command-after-save ()
+  (interactive)
+  (let* command-to-exec
+    (setq command-to-exec (read-input "shell-command: "))
+    (add-hook 'after-save-hook
+              '(lambda ()
+                 (shell-command command-to-exec)
+                 ) nil t)
+    (princ (format "Shell-command `%s` will run when after saving this buffer." command-to-exec))
+    ))
+
+;; 最近開いたファイル機能を有効化
+;; 開くときはM-x recentf-open-files
+(recentf-mode 1)
