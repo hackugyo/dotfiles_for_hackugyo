@@ -1,0 +1,11 @@
+*~
+.DS_Store
+local.properties
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# AWS Tool
+AWS-ElasticBeanstalk/*
