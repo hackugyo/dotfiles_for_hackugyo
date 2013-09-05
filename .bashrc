@@ -19,7 +19,7 @@ alias ag='ag --smart-case --color --stats' # --pager "less -F"'
 alias show_path='echo -e ${PATH//:/\\n}'
 
 # reload bashrc
-alias reload_bashrc='
+alias reload_bashrc='source ~/.bashrc'
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
