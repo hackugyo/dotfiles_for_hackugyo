@@ -568,6 +568,13 @@ static char * arrow_right[] = {
   (when (executable-find "git")
     (remove-hook 'after-save-hook 'gitnow-after-save-hook)))
 
+;; http://superuser.com/a/621290
+;; Do not use rebase-mode. 
+;; The rebase-mode in emacs is read-only and not use-friendly.
+(setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
+                              auto-mode-alist))
+
+
 ;; http://pokutech.hatenablog.com/entry/2012/07/14/233900
 ;; バッファローカルに，shell-commandを実行する一時的なafter-save-hookを追加するelispを追加する．
 ;; 動作しない．
@@ -585,3 +592,14 @@ static char * arrow_right[] = {
 ;; 最近開いたファイル機能を有効化
 ;; 開くときはM-x recentf-open-files
 (recentf-mode 1)
+
+;; server start for emacs-client
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; php-mode
+(when (require 'php-mode nil t)
+  (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
+  (setq php-search-url "http://jp.php.net/ja/")
+  (setq php-manual-url "http://jp.php.net/manual/ja/"))
