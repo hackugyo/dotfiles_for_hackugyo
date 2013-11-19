@@ -598,6 +598,6 @@ static char * arrow_right[] = {
 (unless (server-running-p)
   (server-start))
 
-;; php-mode
-(when (require 'php-mode nil t)
-  )
+;; php-modeを入れたが，
+;;; Symbol's function definition is void: php-heredoc-syntax
+;; のエラーが出てしまうため削除．
