@@ -603,3 +603,13 @@ static char * arrow_right[] = {
   (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
   (setq php-search-url "http://jp.php.net/ja/")
   (setq php-manual-url "http://jp.php.net/manual/ja/"))
+
+;; php-modeのインデント設定
+(defun php-indent-hook ()
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)
+  ;; (c-set-ofset 'case-label' '+) ; swtich文のcaseラベル
+  (c-set-offset 'arglist-intro '+) ; 配列の最初の要素が改行した場合
+  (c-set-offset 'arglist-close 0)) ; 配列のとじカッコ
+
+(add-hook 'php-mode-hook 'php-indent-hook)
