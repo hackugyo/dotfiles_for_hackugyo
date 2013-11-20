@@ -601,3 +601,5 @@ static char * arrow_right[] = {
 ;; php-modeを入れたが，
 ;;; Symbol's function definition is void: php-heredoc-syntax
 ;; のエラーが出てしまうため削除．
+;; php-mode-improvedをel-get経由で再度インストールした
+;; http://d.hatena.ne.jp/rubikitch/20101209/elget
