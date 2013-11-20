@@ -603,3 +603,6 @@ static char * arrow_right[] = {
 ;; のエラーが出てしまうため削除．
 ;; php-mode-improvedをel-get経由で再度インストールした
 ;; http://d.hatena.ne.jp/rubikitch/20101209/elget
+;;; 暇を見てこちらも設定予定
+;;; http://mugijiru.seesaa.net/article/326967860.html
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
