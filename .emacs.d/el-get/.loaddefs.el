@@ -52,11 +52,34 @@ Display a list of packages.
 
 ;;;***
 
+;;;### (autoloads (php-mode php-file-patterns php-mode-to-use) "php-mode-improved"
+;;;;;;  "php-mode-improved/php-mode-improved.el" (21132 3552))
+;;; Generated autoloads from php-mode-improved/php-mode-improved.el
+
+(defvar php-mode-to-use (progn (require 'mumamo nil t) (if (fboundp 'nxhtml-mumamo-turn-on) 'nxhtml-mumamo-turn-on (if (fboundp 'html-mumamo-turn-on) 'html-mumamo-turn-on 'php-mode))) "\
+Major mode turn on function to use for php files.")
+
+(custom-autoload 'php-mode-to-use "php-mode-improved" t)
+
+(defvar php-file-patterns '("\\.php[s34]?\\'" "\\.phtml\\'" "\\.inc\\'") "\
+List of file patterns for which to automatically invoke `php-mode'.")
+
+(custom-autoload 'php-file-patterns "php-mode-improved" nil)
+
+(autoload 'php-mode "php-mode-improved" "\
+Major mode for editing PHP code.
+
+\\{php-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil nil ("el-get/el-get-autoloads.el" "el-get/el-get-build.el"
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el") (21132 3427 807931))
+;;;;;;  "el-get/el-get-status.el") (21132 3553 280134))
 
 ;;;***
 
