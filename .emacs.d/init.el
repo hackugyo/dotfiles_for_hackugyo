@@ -623,6 +623,7 @@ static char * arrow_right[] = {
 
 ;====================================
 ;;全角スペースとかに色を付ける
+;; http://ubulog.blogspot.jp/2007/09/emacs_09.html
 ;====================================
 (defface my-face-b-1 '((t (:background "medium aquamarine"))) nil)
 (defface my-face-b-1 '((t (:background "dark turquoise"))) nil)
