@@ -57,7 +57,7 @@
 
 ;;; Code:
 
-(defvar hiwin-deactive-color "gray30"
+(defvar hiwin-deactive-color "gray85"
   "非アクティブwindowの背景色")
 (defvar hiwin-readonly-color "#000030"
   "読み取り専用windowの背景色")
