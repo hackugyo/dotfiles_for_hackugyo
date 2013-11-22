@@ -617,6 +617,10 @@ static char * arrow_right[] = {
                     (set-face-background 'mode-line-inactive "gray85")
                     ))
 
+;; https://github.com/tomoya/hiwin-mode
+(require 'hiwin)
+(hiwin-mode)
+
 ;====================================
 ;;全角スペースとかに色を付ける
 ;====================================
