@@ -647,4 +647,4 @@ static char * arrow_right[] = {
 (add-hook 'find-file-hooks '(lambda ()
                              (if font-lock-mode
                                nil
-                               (font-lock-mode t)))) ア　i
+                               (font-lock-mode t))))
