@@ -609,6 +609,16 @@ static char * arrow_right[] = {
 
 
 ;====================================
+;; 背景色を設定する
+;====================================
+(if window-system (progn
+                    ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+                    (set-face-foreground 'mode-line-inactive "gray30")
+  ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+  (set-face-background 'mode-line-inactive "gray85")
+                    ))
+
+;====================================
 ;;全角スペースとかに色を付ける
 ;====================================
 (defface my-face-b-1 '((t (:background "medium aquamarine"))) nil)
