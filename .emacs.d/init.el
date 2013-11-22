@@ -620,7 +620,7 @@ static char * arrow_right[] = {
 ;; https://github.com/tomoya/hiwin-mode
 (require 'hiwin)
 (hiwin-mode)
-(defvar hiwin-deactive-color "gray50"
+(defvar hiwin-deactive-color "gray30"
   "非アクティブwindowの背景色")
 
 ;====================================
