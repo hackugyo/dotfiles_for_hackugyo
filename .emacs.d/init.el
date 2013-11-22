@@ -630,7 +630,7 @@ static char * arrow_right[] = {
 (defface my-face-b-2 '((t (:background "cyan"))) nil)
 (defface my-face-b-2 '((t (:background "SeaGreen"))) nil)
 ;(defface my-face-u-1 '((t (:background "SeaGreen"))) nil)
-(defface my-face-u-1 '((t (:foreground "SeaGreen" :underline t))) nil)
+;(defface my-face-u-1 '((t (:foreground "SeaGreen" :underline t))) nil)
 (defvar my-face-b-1 'my-face-b-1)
 (defvar my-face-b-2 'my-face-b-2)
 (defvar my-face-u-1 'my-face-u-1)
