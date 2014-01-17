@@ -5,7 +5,11 @@ ANDROID_HOME=/Users/kwatanabe/android-sdks/
 PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
+PATH=/usr/local/bin:$PATH
 MANPATH=/opt/local/man:$MANPATH
+
+PGDATA=/usr/local/var/postgres
+PGHOST=localhost
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -28,6 +32,10 @@ function share_history {  # 以下の内容を関数として定義
 PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
 shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
 export HISTSIZE=9999  # 履歴のMAX保存数を指定
+export HISTFILESIE=9999 # 履歴ファイルの保存履歴数を指定
+export HISTCONTROL=ignoreups # 同じコマンドが連続した場合に1k回だけ記録する
+export HISTIGNORE=history # historyじしんの呼び出しは記録しない
+
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
@@ -36,3 +44,8 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 # color Terminal
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+
+# DYLD_LIBRARY_PATH bug of Mac
+# http://qiita.com/dvorak__/items/4e365746adc8f56e9764
+unset LD_LIBRARY_PATH
+unset DYLD_LIBRARY_PATH

@@ -648,3 +648,13 @@ static char * arrow_right[] = {
                              (if font-lock-mode
                                nil
                                (font-lock-mode t))))
+
+;========================================
+;; 以前開いたファイルを再度開いたとき、元のカーソル位置を復元する
+;; http://www.emacswiki.org/emacs/SavePlace
+;; http://d.hatena.ne.jp/hnw/20140111
+;========================================
+
+(when (require 'saveplace nil t)
+  (setq-default save-place t)
+  (setq save-place-file "~/.emacs.d/saved-places"))
