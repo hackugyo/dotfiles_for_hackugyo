@@ -662,6 +662,8 @@ static char * arrow_right[] = {
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; php-mode
+;; https://github.com/ejmr/php-modeだと動作しなかったので
+;; php-mode-improved.elでインストールした
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when (require 'php-mode nil t)
