@@ -658,3 +658,13 @@ static char * arrow_right[] = {
 (when (require 'saveplace nil t)
   (setq-default save-place t)
   (setq save-place-file "~/.emacs.d/saved-places"))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; php-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(when (require 'php-mode nil t)
+  (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
+  (setq php-search-url "http://jp.php.net/ja/")
+  (setq php-manual-url "http://jp.php.net/manual/ja/"))
