@@ -673,6 +673,8 @@ static char * arrow_right[] = {
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; gradle-mode
+; install-elipsコマンドでインストールした
+; https://github.com/jacobono/emacs-gradle-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-- 
+(require 'gradle-mode)
+(gradle-mode 1)
