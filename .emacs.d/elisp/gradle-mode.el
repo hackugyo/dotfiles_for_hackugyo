@@ -1,118 +1,122 @@
-  
+
+
+
 
 
 <!DOCTYPE html>
 <html>
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>emacs-gradle-mode/gradle-mode.el at master · djmijares/emacs-gradle-mode · GitHub</title>
+        <title>emacs-gradle-mode/gradle-mode.el at master · jacobono/emacs-gradle-mode · GitHub</title>
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
-    <link rel="logo" type="image/svg" href="http://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
+    <meta property="fb:app_id" content="1401488693436528"/>
+
+      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="jacobono/emacs-gradle-mode" name="twitter:title" /><meta content="emacs-gradle-mode - minor mode for emacs to run gradle from emacs and not have to go to a terminal" name="twitter:description" /><meta content="https://avatars.githubusercontent.com/u/1119640" name="twitter:image:src" />
+<meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars.githubusercontent.com/u/1119640" property="og:image" /><meta content="jacobono/emacs-gradle-mode" property="og:title" /><meta content="https://github.com/jacobono/emacs-gradle-mode" property="og:url" /><meta content="emacs-gradle-mode - minor mode for emacs to run gradle from emacs and not have to go to a terminal" property="og:description" />
+
+    <meta name="hostname" content="github-fe118-cp1-prd.iad.github.net">
+    <meta name="ruby" content="ruby 2.1.0p0-github-tcmalloc (87c9373a41) [x86_64-linux]">
+    <link rel="assets" href="https://github.global.ssl.fastly.net/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
     <link rel="xhr-socket" href="/_sockets" />
 
 
     <meta name="msapplication-TileImage" content="/windows-tile.png" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="selected-link" value="repo_source" data-pjax-transient />
-    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="7AD86F16:521F:8DBD7C:530DB50C" name="octolytics-dimension-request_id" />
+    
 
     
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <meta content="authenticity_token" name="csrf-param" />
-<meta content="G38nylUu6NGW2dWZ+9MAXCU2FVoieytGXt1EIdYSr9s=" name="csrf-token" />
+<meta content="gec5ZVpfGbAWdCO8OQJFblkEl5B1Zc4Bo1w5wTgSWKU=" name="csrf-token" />
 
-    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-aacfd01406222a8e32af6bf66a2eed1a08267178.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-30896c5685c3dd8da766a4fd3065a563107c9370.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://github.global.ssl.fastly.net/assets/github-99f0c420247f036251131234f2df1eaaf2ddb386.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://github.global.ssl.fastly.net/assets/github2-c1671115cdd7e4b44317ecd428238f073c37dbc0.css" media="all" rel="stylesheet" type="text/css" />
+    
     
 
 
-      <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-ec9348b8374c693b0749d0b95b215fe3f5414fd0.js" type="text/javascript"></script>
-      <script src="https://a248.e.akamai.net/assets.github.com/assets/github-3a11f3836624f198d32737512fe1c445445987b3.js" type="text/javascript"></script>
+      <script crossorigin="anonymous" src="https://github.global.ssl.fastly.net/assets/frameworks-01ab94ef47d6293597922a1fab60e274e1d8f37e.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="https://github.global.ssl.fastly.net/assets/github-4080dfd1919155cf72a9b56c3bf746e67b898aa6.js" type="text/javascript"></script>
       
-      <meta http-equiv="x-pjax-version" content="bdd56032babb410898471b4229dd697b">
+      <meta http-equiv="x-pjax-version" content="285f2c751e45e1751b37093c33d9affd">
 
-        <link data-pjax-transient rel='permalink' href='/djmijares/emacs-gradle-mode/blob/aaad1e5c65fd99948f95e984e66e162c9b1f8450/gradle-mode.el'>
-    <meta property="og:title" content="emacs-gradle-mode"/>
-    <meta property="og:type" content="githubog:gitrepository"/>
-    <meta property="og:url" content="https://github.com/djmijares/emacs-gradle-mode"/>
-    <meta property="og:image" content="https://secure.gravatar.com/avatar/5a29afa8a365fd6333b01b5f8aa80f4a?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
-    <meta property="og:site_name" content="GitHub"/>
-    <meta property="og:description" content="emacs-gradle-mode - minor mode for emacs to run gradle from emacs and not have to go to a terminal"/>
-    <meta property="twitter:card" content="summary"/>
-    <meta property="twitter:site" content="@GitHub">
-    <meta property="twitter:title" content="djmijares/emacs-gradle-mode"/>
+        <link data-pjax-transient rel='permalink' href='/jacobono/emacs-gradle-mode/blob/e5cb7fb428d83637e2ddc471d30790d7e3c1f473/gradle-mode.el'>
 
-    <meta name="description" content="emacs-gradle-mode - minor mode for emacs to run gradle from emacs and not have to go to a terminal" />
+  <meta name="description" content="emacs-gradle-mode - minor mode for emacs to run gradle from emacs and not have to go to a terminal" />
 
-
-    <meta content="1119640" name="octolytics-dimension-user_id" /><meta content="7677282" name="octolytics-dimension-repository_id" />
-  <link href="https://github.com/djmijares/emacs-gradle-mode/commits/master.atom" rel="alternate" title="Recent Commits to emacs-gradle-mode:master" type="application/atom+xml" />
+  <meta content="1119640" name="octolytics-dimension-user_id" /><meta content="jacobono" name="octolytics-dimension-user_login" /><meta content="7677282" name="octolytics-dimension-repository_id" /><meta content="jacobono/emacs-gradle-mode" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="7677282" name="octolytics-dimension-repository_network_root_id" /><meta content="jacobono/emacs-gradle-mode" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/jacobono/emacs-gradle-mode/commits/master.atom" rel="alternate" title="Recent Commits to emacs-gradle-mode:master" type="application/atom+xml" />
 
   </head>
 
 
-  <body class="logged_out page-blob  vis-public env-production  ">
-    <div id="wrapper">
+  <body class="logged_out  env-production  vis-public page-blob tipsy-tooltips">
+    <div class="wrapper">
+      
+      
+      
+      
 
-      
-      
-      
 
       
       <div class="header header-logged-out">
   <div class="container clearfix">
 
-    <a class="header-logo-wordmark" href="https://github.com/">Github</a>
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
 
     <div class="header-actions">
-      <a class="button primary" href="/signup">Sign up</a>
-      <a class="button" href="/login?return_to=%2Fdjmijares%2Femacs-gradle-mode%2Fblob%2Fmaster%2Fgradle-mode.el">Sign in</a>
+        <a class="button primary" href="/join">Sign up</a>
+      <a class="button signin" href="/login?return_to=%2Fjacobono%2Femacs-gradle-mode%2Fblob%2Fmaster%2Fgradle-mode.el">Sign in</a>
     </div>
 
     <div class="command-bar js-command-bar  in-repository">
 
-
       <ul class="top-nav">
           <li class="explore"><a href="/explore">Explore</a></li>
         <li class="features"><a href="/features">Features</a></li>
-          <li class="enterprise"><a href="http://enterprise.github.com/">Enterprise</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
           <li class="blog"><a href="/blog">Blog</a></li>
       </ul>
         <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
-  <a href="/search/advanced" class="advanced-search-icon tooltipped downwards command-bar-search" id="advanced_search" title="Advanced search"><span class="octicon octicon-gear "></span></a>
 
-  <input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
+<input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
     
-      data-repo="djmijares/emacs-gradle-mode"
+    
+      data-repo="jacobono/emacs-gradle-mode"
       data-branch="master"
-      data-sha="b725537bbe3c2f55a9fdd727f084abb164464f3a"
+      data-sha="789a36ffe107f419385fb4651d1ffa65b468f01b"
   >
 
-    <input type="hidden" name="nwo" value="djmijares/emacs-gradle-mode" />
+    <input type="hidden" name="nwo" value="jacobono/emacs-gradle-mode" />
 
     <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
-      <span class="minibutton select-menu-button js-menu-target">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
         <span class="js-select-button">This repository</span>
       </span>
 
-      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
         <div class="select-menu-modal">
 
-          <div class="select-menu-item js-navigation-item selected">
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
             <span class="select-menu-item-icon octicon octicon-check"></span>
             <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
             <div class="select-menu-item-text js-select-button-text">This repository</div>
           </div> <!-- /.select-menu-item -->
 
-          <div class="select-menu-item js-navigation-item">
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
             <span class="select-menu-item-icon octicon octicon-check"></span>
             <input type="radio" name="search_target" value="global" />
             <div class="select-menu-item-text js-select-button-text">All repositories</div>
@@ -122,14 +126,12 @@
       </div>
     </div>
 
-  <span class="octicon help tooltipped downwards" title="Show command bar help">
+  <span class="help tooltipped tooltipped-s" aria-label="Show command bar help">
     <span class="octicon octicon-question"></span>
   </span>
 
 
   <input type="hidden" name="ref" value="cmdform">
-
-  <div class="divider-vertical"></div>
 
 </form>
     </div>
@@ -138,233 +140,314 @@
 </div>
 
 
-      
 
 
-            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
-      <div class="hentry">
+          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
         
-        <div class="pagehead repohead instapaper_ignore readability-menu ">
-          <div class="container">
-            <div class="title-actions-bar">
-              
 
 <ul class="pagehead-actions">
 
 
+  <li>
+    <a href="/login?return_to=%2Fjacobono%2Femacs-gradle-mode"
+    class="minibutton with-count js-toggler-target star-button tooltipped tooltipped-n"
+    aria-label="You must be signed in to use this feature" rel="nofollow">
+    <span class="octicon octicon-star"></span>Star
+  </a>
+
+    <a class="social-count js-social-count" href="/jacobono/emacs-gradle-mode/stargazers">
+      3
+    </a>
+
+  </li>
 
     <li>
-      <a href="/login?return_to=%2Fdjmijares%2Femacs-gradle-mode"
-        class="minibutton js-toggler-target star-button entice tooltipped upwards"
-        title="You must be signed in to use this feature" rel="nofollow">
-        <span class="octicon octicon-star"></span>Star
-      </a>
-      <a class="social-count js-social-count" href="/djmijares/emacs-gradle-mode/stargazers">
-        0
-      </a>
-    </li>
-    <li>
-      <a href="/login?return_to=%2Fdjmijares%2Femacs-gradle-mode"
-        class="minibutton js-toggler-target fork-button entice tooltipped upwards"
-        title="You must be signed in to fork a repository" rel="nofollow">
+      <a href="/login?return_to=%2Fjacobono%2Femacs-gradle-mode"
+        class="minibutton with-count js-toggler-target fork-button tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
         <span class="octicon octicon-git-branch"></span>Fork
       </a>
-      <a href="/djmijares/emacs-gradle-mode/network" class="social-count">
-        0
+      <a href="/jacobono/emacs-gradle-mode/network" class="social-count">
+        7
       </a>
     </li>
 </ul>
 
-              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
-                <span class="repo-label"><span>public</span></span>
-                <span class="mega-octicon octicon-repo"></span>
-                <span class="author vcard">
-                  <a href="/djmijares" class="url fn" itemprop="url" rel="author">
-                  <span itemprop="title">djmijares</span>
-                  </a></span> /
-                <strong><a href="/djmijares/emacs-gradle-mode" class="js-current-repository">emacs-gradle-mode</a></strong>
-              </h1>
-            </div>
+        <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="repo-label"><span>public</span></span>
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author">
+            <a href="/jacobono" class="url fn" itemprop="url" rel="author"><span itemprop="title">jacobono</span></a>
+          </span>
+          <span class="repohead-name-divider">/</span>
+          <strong><a href="/jacobono/emacs-gradle-mode" class="js-current-repository js-repo-home-link">emacs-gradle-mode</a></strong>
 
+          <span class="page-context-loader">
+            <img alt="Octocat-spinner-32" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline js-new-discussion-timeline  ">
+        <div class="repository-sidebar clearfix">
             
-  <ul class="tabs">
-    <li class="pulse-nav"><a href="/djmijares/emacs-gradle-mode/pulse" class="js-selected-navigation-item " data-selected-links="pulse /djmijares/emacs-gradle-mode/pulse" rel="nofollow"><span class="octicon octicon-pulse"></span></a></li>
-    <li><a href="/djmijares/emacs-gradle-mode" class="js-selected-navigation-item selected" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /djmijares/emacs-gradle-mode">Code</a></li>
-    <li><a href="/djmijares/emacs-gradle-mode/network" class="js-selected-navigation-item " data-selected-links="repo_network /djmijares/emacs-gradle-mode/network">Network</a></li>
-    <li><a href="/djmijares/emacs-gradle-mode/pulls" class="js-selected-navigation-item " data-selected-links="repo_pulls /djmijares/emacs-gradle-mode/pulls">Pull Requests <span class='counter'>0</span></a></li>
 
-      <li><a href="/djmijares/emacs-gradle-mode/issues" class="js-selected-navigation-item " data-selected-links="repo_issues /djmijares/emacs-gradle-mode/issues">Issues <span class='counter'>0</span></a></li>
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="/jacobono/emacs-gradle-mode" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-gotokey="c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /jacobono/emacs-gradle-mode">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+        <li class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="/jacobono/emacs-gradle-mode/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="i" data-selected-links="repo_issues /jacobono/emacs-gradle-mode/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class='counter'>0</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>        </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="/jacobono/emacs-gradle-mode/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="p" data-selected-links="repo_pulls /jacobono/emacs-gradle-mode/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class='counter'>0</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
 
 
-
-    <li><a href="/djmijares/emacs-gradle-mode/graphs" class="js-selected-navigation-item " data-selected-links="repo_graphs repo_contributors /djmijares/emacs-gradle-mode/graphs">Graphs</a></li>
-
-
-  </ul>
-  
-<div class="tabnav">
-
-  <span class="tabnav-right">
-    <ul class="tabnav-tabs">
-          <li><a href="/djmijares/emacs-gradle-mode/tags" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_tags /djmijares/emacs-gradle-mode/tags">Tags <span class="counter blank">0</span></a></li>
     </ul>
-  </span>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
 
-  <div class="tabnav-widget scope">
+      <li class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="/jacobono/emacs-gradle-mode/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /jacobono/emacs-gradle-mode/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
 
+      <li class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="/jacobono/emacs-gradle-mode/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /jacobono/emacs-gradle-mode/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
 
-    <div class="select-menu js-menu-container js-select-menu js-branch-menu">
-      <a class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-ref="master">
-        <span class="octicon octicon-branch"></span>
-        <i>branch:</i>
-        <span class="js-select-button">master</span>
-      </a>
-
-      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
-
-        <div class="select-menu-modal">
-          <div class="select-menu-header">
-            <span class="select-menu-title">Switch branches/tags</span>
-            <span class="octicon octicon-remove-close js-menu-close"></span>
-          </div> <!-- /.select-menu-header -->
-
-          <div class="select-menu-filters">
-            <div class="select-menu-text-filter">
-              <input type="text" id="commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-            </div>
-            <div class="select-menu-tabs">
-              <ul>
-                <li class="select-menu-tab">
-                  <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
-                </li>
-                <li class="select-menu-tab">
-                  <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
-                </li>
-              </ul>
-            </div><!-- /.select-menu-tabs -->
-          </div><!-- /.select-menu-filters -->
-
-          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="branches">
-
-            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
-
-                <div class="select-menu-item js-navigation-item selected">
-                  <span class="select-menu-item-icon octicon octicon-check"></span>
-                  <a href="/djmijares/emacs-gradle-mode/blob/master/gradle-mode.el" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="master" rel="nofollow" title="master">master</a>
-                </div> <!-- /.select-menu-item -->
-            </div>
-
-              <div class="select-menu-no-results">Nothing to show</div>
-          </div> <!-- /.select-menu-list -->
+      <li class="tooltipped tooltipped-w" aria-label="Network">
+        <a href="/jacobono/emacs-gradle-mode/network" aria-label="Network" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-selected-links="repo_network /jacobono/emacs-gradle-mode/network">
+          <span class="octicon octicon-git-branch"></span> <span class="full-word">Network</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="https://github.global.ssl.fastly.net/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+    </ul>
 
 
-          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="tags">
-            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+  </div>
+</div>
 
-            </div>
+              <div class="only-with-full-nav">
+                
 
-            <div class="select-menu-no-results">Nothing to show</div>
+  
 
-          </div> <!-- /.select-menu-list -->
+<div class="clone-url open"
+  data-protocol-type="http"
+  data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field"
+           value="https://github.com/jacobono/emacs-gradle-mode.git" readonly="readonly">
 
-        </div> <!-- /.select-menu-modal -->
-      </div> <!-- /.select-menu-modal-holder -->
-    </div> <!-- /.select-menu -->
-
-  </div> <!-- /.scope -->
-
-  <ul class="tabnav-tabs">
-    <li><a href="/djmijares/emacs-gradle-mode" class="selected js-selected-navigation-item tabnav-tab" data-selected-links="repo_source /djmijares/emacs-gradle-mode">Files</a></li>
-    <li><a href="/djmijares/emacs-gradle-mode/commits/master" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_commits /djmijares/emacs-gradle-mode/commits/master">Commits</a></li>
-    <li><a href="/djmijares/emacs-gradle-mode/branches" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_branches /djmijares/emacs-gradle-mode/branches" rel="nofollow">Branches <span class="counter ">1</span></a></li>
-  </ul>
-
+    <span aria-label="copy to clipboard" class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/jacobono/emacs-gradle-mode.git" data-copied-hint="copied!"><span class="octicon octicon-clippy"></span></span>
+  </div>
 </div>
 
   
-  
-  
+
+<div class="clone-url "
+  data-protocol-type="subversion"
+  data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field"
+           value="https://github.com/jacobono/emacs-gradle-mode" readonly="readonly">
+
+    <span aria-label="copy to clipboard" class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/jacobono/emacs-gradle-mode" data-copied-hint="copied!"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
 
 
-            
-          </div>
-        </div><!-- /.repohead -->
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <span class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use">
+    <span class="octicon octicon-question"></span>
+    </a>
+  </span>
+</p>
 
-        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
+
+
+                <a href="/jacobono/emacs-gradle-mode/archive/master.zip"
+                   class="minibutton sidebar-button"
+                   title="Download this repository as a zip file"
+                   rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
           
 
 
-<!-- blob contrib key: blob_contributors:v21:9ed2e48d599f70bd60202c59517d6542 -->
-<!-- blob contrib frag key: views10/v8/blob_contributors:v21:9ed2e48d599f70bd60202c59517d6542 -->
+<!-- blob contrib key: blob_contributors:v21:e7935b7e50446872a389adb2ad374ac3 -->
+
+<p title="This is a placeholder element" class="js-history-link-replace hidden"></p>
+
+<a href="/jacobono/emacs-gradle-mode/find/master" data-pjax data-hotkey="t" class="js-show-file-finder" style="display:none">Show File Finder</a>
+
+<div class="file-navigation">
+  
+
+<div class="select-menu js-menu-container js-select-menu" >
+  <span class="minibutton select-menu-button js-menu-target" data-hotkey="w"
+    data-master-branch="master"
+    data-ref="master"
+    role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-remove-close js-menu-close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
 
 
-<div id="slider">
-    <div class="frame-meta">
-
-      <p title="This is a placeholder element" class="js-history-link-replace hidden"></p>
-
-        <div class="breadcrumb">
-          <span class='bold'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/djmijares/emacs-gradle-mode" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">emacs-gradle-mode</span></a></span></span><span class="separator"> / </span><strong class="final-path">gradle-mode.el</strong> <span class="js-zeroclipboard zeroclipboard-button" data-clipboard-text="gradle-mode.el" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/jacobono/emacs-gradle-mode/blob/master/gradle-mode.el"
+                 data-name="master"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target"
+                 title="master">master</a>
+            </div> <!-- /.select-menu-item -->
         </div>
 
-      <a href="/djmijares/emacs-gradle-mode/find/master" class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
 
 
-        
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+  <div class="breadcrumb">
+    <span class='repo-root js-repo-root'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/jacobono/emacs-gradle-mode" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">emacs-gradle-mode</span></a></span></span><span class="separator"> / </span><strong class="final-path">gradle-mode.el</strong> <span aria-label="copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="gradle-mode.el" data-copied-hint="copied!"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+
   <div class="commit file-history-tease">
-    <img class="main-avatar" height="24" src="https://secure.gravatar.com/avatar/5a29afa8a365fd6333b01b5f8aa80f4a?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
-    <span class="author"><a href="/djmijares" rel="author">djmijares</a></span>
-    <time class="js-relative-date" datetime="2013-01-17T20:42:57-08:00" title="2013-01-17 20:42:57">January 17, 2013</time>
+    <img alt="Flávio Alves granato" class="main-avatar js-avatar" data-user="328252" height="24" src="https://avatars.githubusercontent.com/u/328252" width="24" />
+    <span class="author"><a href="/flaviogranato" rel="author">flaviogranato</a></span>
+    <time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-09-03T19:04:36-07:00" title="2013-09-03 19:04:36">September 03, 2013</time>
     <div class="commit-title">
-        <a href="/djmijares/emacs-gradle-mode/commit/aaad1e5c65fd99948f95e984e66e162c9b1f8450" class="message">adding the base skeleton to gradle minor mode</a>
+        <a href="/jacobono/emacs-gradle-mode/commit/7460c95a61564aa1528f026bf85dedb0967a282b" class="message" data-pjax="true" title="Kill compilation windows on recompile project">Kill compilation windows on recompile project</a>
     </div>
 
     <div class="participation">
-      <p class="quickstat"><a href="#blob_contributors_box" rel="facebox"><strong>1</strong> contributor</a></p>
-      
+      <p class="quickstat"><a href="#blob_contributors_box" rel="facebox"><strong>2</strong> contributors</a></p>
+          <a class="avatar tooltipped tooltipped-s" aria-label="jacobono" href="/jacobono/emacs-gradle-mode/commits/master/gradle-mode.el?author=jacobono"><img alt="jacobono" class=" js-avatar" data-user="1119640" height="20" src="https://avatars.githubusercontent.com/u/1119640" width="20" /></a>
+    <a class="avatar tooltipped tooltipped-s" aria-label="flaviogranato" href="/jacobono/emacs-gradle-mode/commits/master/gradle-mode.el?author=flaviogranato"><img alt="Flávio Alves granato" class=" js-avatar" data-user="328252" height="20" src="https://avatars.githubusercontent.com/u/328252" width="20" /></a>
+
+
     </div>
     <div id="blob_contributors_box" style="display:none">
-      <h2>Users on GitHub who have contributed to this file</h2>
+      <h2 class="facebox-header">Users who have contributed to this file</h2>
       <ul class="facebox-user-list">
-        <li>
-          <img height="24" src="https://secure.gravatar.com/avatar/5a29afa8a365fd6333b01b5f8aa80f4a?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
-          <a href="/djmijares">djmijares</a>
-        </li>
+          <li class="facebox-user-list-item">
+            <img alt="jacobono" class=" js-avatar" data-user="1119640" height="24" src="https://avatars.githubusercontent.com/u/1119640" width="24" />
+            <a href="/jacobono">jacobono</a>
+          </li>
+          <li class="facebox-user-list-item">
+            <img alt="Flávio Alves granato" class=" js-avatar" data-user="328252" height="24" src="https://avatars.githubusercontent.com/u/328252" width="24" />
+            <a href="/flaviogranato">flaviogranato</a>
+          </li>
       </ul>
     </div>
   </div>
 
-
-    </div><!-- ./.frame-meta -->
-
-    <div class="frames">
-      <div class="frame" data-permalink-url="/djmijares/emacs-gradle-mode/blob/aaad1e5c65fd99948f95e984e66e162c9b1f8450/gradle-mode.el" data-title="emacs-gradle-mode/gradle-mode.el at master · djmijares/emacs-gradle-mode · GitHub" data-type="blob">
-
-        <div id="files" class="bubble">
-          <div class="file">
-            <div class="meta">
-              <div class="info">
-                <span class="icon"><b class="octicon octicon-file-text"></b></span>
-                <span class="mode" title="File Mode">file</span>
-                  <span>30 lines (19 sloc)</span>
-                <span>0.715 kb</span>
-              </div>
-              <div class="actions">
-                <div class="button-group">
-                      <a class="minibutton js-entice" href=""
-                         data-entice="You must be signed in and on a branch to make or propose changes">Edit</a>
-                  <a href="/djmijares/emacs-gradle-mode/raw/master/gradle-mode.el" class="button minibutton " id="raw-url">Raw</a>
-                    <a href="/djmijares/emacs-gradle-mode/blame/master/gradle-mode.el" class="button minibutton ">Blame</a>
-                  <a href="/djmijares/emacs-gradle-mode/commits/master/gradle-mode.el" class="button minibutton " rel="nofollow">History</a>
-                </div><!-- /.button-group -->
-              </div><!-- /.actions -->
-
-            </div>
-                <div class="blob-wrapper data type-emacs-lisp js-blob-data">
-      <table class="file-code file-diff">
-        <tr class="file-code-line">
-          <td class="blob-line-nums">
-            <span id="L1" rel="#L1">1</span>
+<div class="file-box">
+  <div class="file">
+    <div class="meta clearfix">
+      <div class="info file-name">
+        <span class="icon"><b class="octicon octicon-file-text"></b></span>
+        <span class="mode" title="File Mode">file</span>
+        <span class="meta-divider"></span>
+          <span>79 lines (61 sloc)</span>
+          <span class="meta-divider"></span>
+        <span>2.848 kb</span>
+      </div>
+      <div class="actions">
+        <div class="button-group">
+              <a class="minibutton disabled tooltipped tooltipped-w" href="#"
+                 aria-label="You must be signed in to make or propose changes">Edit</a>
+          <a href="/jacobono/emacs-gradle-mode/raw/master/gradle-mode.el" class="button minibutton " id="raw-url">Raw</a>
+            <a href="/jacobono/emacs-gradle-mode/blame/master/gradle-mode.el" class="button minibutton js-update-url-with-hash">Blame</a>
+          <a href="/jacobono/emacs-gradle-mode/commits/master/gradle-mode.el" class="button minibutton " rel="nofollow">History</a>
+        </div><!-- /.button-group -->
+          <a class="minibutton danger disabled empty-icon tooltipped tooltipped-w" href="#"
+             aria-label="You must be signed in to make or propose changes">
+          Delete
+        </a>
+      </div><!-- /.actions -->
+    </div>
+        <div class="blob-wrapper data type-emacs-lisp js-blob-data">
+        <table class="file-code file-diff tab-size-8">
+          <tr class="file-code-line">
+            <td class="blob-line-nums">
+              <span id="L1" rel="#L1">1</span>
 <span id="L2" rel="#L2">2</span>
 <span id="L3" rel="#L3">3</span>
 <span id="L4" rel="#L4">4</span>
@@ -393,127 +476,122 @@
 <span id="L27" rel="#L27">27</span>
 <span id="L28" rel="#L28">28</span>
 <span id="L29" rel="#L29">29</span>
+<span id="L30" rel="#L30">30</span>
+<span id="L31" rel="#L31">31</span>
+<span id="L32" rel="#L32">32</span>
+<span id="L33" rel="#L33">33</span>
+<span id="L34" rel="#L34">34</span>
+<span id="L35" rel="#L35">35</span>
+<span id="L36" rel="#L36">36</span>
+<span id="L37" rel="#L37">37</span>
+<span id="L38" rel="#L38">38</span>
+<span id="L39" rel="#L39">39</span>
+<span id="L40" rel="#L40">40</span>
+<span id="L41" rel="#L41">41</span>
+<span id="L42" rel="#L42">42</span>
+<span id="L43" rel="#L43">43</span>
+<span id="L44" rel="#L44">44</span>
+<span id="L45" rel="#L45">45</span>
+<span id="L46" rel="#L46">46</span>
+<span id="L47" rel="#L47">47</span>
+<span id="L48" rel="#L48">48</span>
+<span id="L49" rel="#L49">49</span>
+<span id="L50" rel="#L50">50</span>
+<span id="L51" rel="#L51">51</span>
+<span id="L52" rel="#L52">52</span>
+<span id="L53" rel="#L53">53</span>
+<span id="L54" rel="#L54">54</span>
+<span id="L55" rel="#L55">55</span>
+<span id="L56" rel="#L56">56</span>
+<span id="L57" rel="#L57">57</span>
+<span id="L58" rel="#L58">58</span>
+<span id="L59" rel="#L59">59</span>
+<span id="L60" rel="#L60">60</span>
+<span id="L61" rel="#L61">61</span>
+<span id="L62" rel="#L62">62</span>
+<span id="L63" rel="#L63">63</span>
+<span id="L64" rel="#L64">64</span>
+<span id="L65" rel="#L65">65</span>
+<span id="L66" rel="#L66">66</span>
+<span id="L67" rel="#L67">67</span>
+<span id="L68" rel="#L68">68</span>
+<span id="L69" rel="#L69">69</span>
+<span id="L70" rel="#L70">70</span>
+<span id="L71" rel="#L71">71</span>
+<span id="L72" rel="#L72">72</span>
+<span id="L73" rel="#L73">73</span>
+<span id="L74" rel="#L74">74</span>
+<span id="L75" rel="#L75">75</span>
+<span id="L76" rel="#L76">76</span>
+<span id="L77" rel="#L77">77</span>
+<span id="L78" rel="#L78">78</span>
 
-          </td>
-          <td class="blob-line-code">
-                  <div class="highlight"><pre><div class='line' id='LC1'><span class="c1">;;; gradle-mode.el --- Groovy and gradle-mode Emacs features</span></div><div class='line' id='LC2'><br/></div><div class='line' id='LC3'><span class="c1">;; This is free and unencumbered software released into the public domain.</span></div><div class='line' id='LC4'><br/></div><div class='line' id='LC5'><span class="c1">;;; Install:</span></div><div class='line' id='LC6'><br/></div><div class='line' id='LC7'><span class="c1">;; Put this file somewhere on your load path (like in .emacs.d), and</span></div><div class='line' id='LC8'><span class="c1">;; require it. That&#39;s it!</span></div><div class='line' id='LC9'><br/></div><div class='line' id='LC10'><span class="c1">;;    (require &#39;gradle-mode)</span></div><div class='line' id='LC11'><br/></div><div class='line' id='LC12'><span class="c1">;;; Code:</span></div><div class='line' id='LC13'><br/></div><div class='line' id='LC14'><span class="p">(</span><span class="nf">defvar</span> <span class="nv">gradle-mode-map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)</span></div><div class='line' id='LC15'>&nbsp;&nbsp;<span class="s">&quot;Keymap for the gradle minor mode.&quot;</span><span class="p">)</span></div><div class='line' id='LC16'><br/></div><div class='line' id='LC17'><span class="c1">;;;###autoload</span></div><div class='line' id='LC18'><span class="p">(</span><span class="nf">define-minor-mode</span> <span class="nv">gradle-mode</span></div><div class='line' id='LC19'>&nbsp;&nbsp;<span class="s">&quot;Extensions to groovy-mode for further support with standard Groovy tools.&quot;</span></div><div class='line' id='LC20'>&nbsp;&nbsp;<span class="nv">:lighter</span> <span class="s">&quot; gra&quot;</span></div><div class='line' id='LC21'>&nbsp;&nbsp;<span class="nv">:keymap</span> <span class="ss">&#39;gradle-mode-map</span><span class="p">)</span></div><div class='line' id='LC22'><br/></div><div class='line' id='LC23'><span class="c1">;; Enable the minor mode wherever groovy-mode is used.</span></div><div class='line' id='LC24'><span class="c1">;;;###autoload</span></div><div class='line' id='LC25'><span class="p">(</span><span class="nf">add-hook</span> <span class="ss">&#39;groovy-mode-hook</span> <span class="ss">&#39;gradle-mode</span><span class="p">)</span></div><div class='line' id='LC26'><br/></div><div class='line' id='LC27'><span class="p">(</span><span class="nf">provide</span> <span class="ss">&#39;gradle-mode</span><span class="p">)</span></div><div class='line' id='LC28'><br/></div><div class='line' id='LC29'><span class="c1">;; groovy-mode-plus.el ends here</span></div></pre></div>
-          </td>
-        </tr>
-      </table>
+            </td>
+            <td class="blob-line-code"><div class="code-body highlight"><pre><div class='line' id='LC1'><span class="c1">;;; gradle-mode.el --- gradle integration with Emacs</span></div><div class='line' id='LC2'><br/></div><div class='line' id='LC3'><span class="c1">;; This is free and unencumbered software released into the public domain.</span></div><div class='line' id='LC4'><br/></div><div class='line' id='LC5'><span class="c1">;;; Install:</span></div><div class='line' id='LC6'><br/></div><div class='line' id='LC7'><span class="c1">;; Put this file somewhere on your load path (like in .emacs.d), and</span></div><div class='line' id='LC8'><span class="c1">;; require it. That&#39;s it!</span></div><div class='line' id='LC9'><br/></div><div class='line' id='LC10'><span class="c1">;;    (require &#39;gradle-mode)</span></div><div class='line' id='LC11'><br/></div><div class='line' id='LC12'><span class="c1">;;; Code:</span></div><div class='line' id='LC13'><span class="p">(</span><span class="nf">require</span> <span class="ss">&#39;compile</span><span class="p">)</span></div><div class='line' id='LC14'><br/></div><div class='line' id='LC15'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-executable-path</span> <span class="p">()</span></div><div class='line' id='LC16'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">executable-find</span> <span class="s">&quot;gradle&quot;</span><span class="p">))</span></div><div class='line' id='LC17'><br/></div><div class='line' id='LC18'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-input-tasks</span> <span class="p">()</span></div><div class='line' id='LC19'>&nbsp;&nbsp;<span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nf">read-string</span> <span class="s">&quot;Enter your gradle tasks to execute (and/or) options: &quot;</span><span class="p">)))</span></div><div class='line' id='LC20'><br/></div><div class='line' id='LC21'><span class="c1">;; Get&#39;s the *potential* gradle file to run off **IF** there is the naming convention in a multi project build</span></div><div class='line' id='LC22'><span class="c1">;; of the folder/dirname -- ${foldername}.gradle -- so you don&#39;t have</span></div><div class='line' id='LC23'><span class="c1">;; as many &quot;build.gradle&quot; in a multi project build</span></div><div class='line' id='LC24'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-get-directory-gradle-file</span> <span class="p">()</span></div><div class='line' id='LC25'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">setq</span> <span class="nv">dirname</span> <span class="p">(</span><span class="nf">file-name-nondirectory</span> <span class="p">(</span><span class="nf">directory-file-name</span> <span class="nv">default-directory</span><span class="p">)))</span></div><div class='line' id='LC26'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">concat</span> <span class="nv">dirname</span> <span class="s">&quot;.gradle&quot;</span><span class="p">))</span></div><div class='line' id='LC27'><br/></div><div class='line' id='LC28'><span class="c1">;; looks for the directory with either a build.gradle or a {foldername}.gradle and uses that directory to run the gradle executable under</span></div><div class='line' id='LC29'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-find-project-dir</span> <span class="p">()</span></div><div class='line' id='LC30'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">with-temp-buffer</span></div><div class='line' id='LC31'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">while</span> <span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">not</span></div><div class='line' id='LC32'>		 <span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nf">file-exists-p</span> <span class="s">&quot;build.gradle&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nf">file-exists-p</span> <span class="p">(</span><span class="nf">gradle-get-directory-gradle-file</span><span class="p">))))</span></div><div class='line' id='LC33'>		<span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">equal</span> <span class="s">&quot;/&quot;</span> <span class="nv">default-directory</span><span class="p">)))</span></div><div class='line' id='LC34'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">cd</span> <span class="s">&quot;..&quot;</span><span class="p">))</span></div><div class='line' id='LC35'>&nbsp;&nbsp;<span class="nv">default-directory</span><span class="p">))</span></div><div class='line' id='LC36'><br/></div><div class='line' id='LC37'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-execute-interactive</span> <span class="p">(</span><span class="nf">tasks</span><span class="p">)</span></div><div class='line' id='LC38'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">interactive</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nf">gradle-input-tasks</span><span class="p">)))</span></div><div class='line' id='LC39'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">gradle-execute</span> <span class="nv">tasks</span><span class="p">))</span></div><div class='line' id='LC40'><br/></div><div class='line' id='LC41'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-execute-daemon-interactive</span> <span class="p">(</span><span class="nf">tasks</span><span class="p">)</span></div><div class='line' id='LC42'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">interactive</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nf">gradle-input-tasks</span><span class="p">)))</span></div><div class='line' id='LC43'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">gradle-execute</span> <span class="p">(</span><span class="nb">append </span><span class="nv">tasks</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;--daemon&quot;</span><span class="p">))))</span></div><div class='line' id='LC44'><br/></div><div class='line' id='LC45'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-execute</span> <span class="p">(</span><span class="nf">tasks</span><span class="p">)</span></div><div class='line' id='LC46'>&nbsp;&nbsp;<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">default-directory</span> <span class="p">(</span><span class="nf">gradle-find-project-dir</span><span class="p">)))</span></div><div class='line' id='LC47'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">progn</span></div><div class='line' id='LC48'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">get-buffer</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">)</span></div><div class='line' id='LC49'>	  <span class="p">(</span><span class="nf">progn</span></div><div class='line' id='LC50'>	    <span class="p">(</span><span class="nf">delete-windows-on</span> <span class="p">(</span><span class="nf">get-buffer</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">))</span></div><div class='line' id='LC51'>	    <span class="p">(</span><span class="nf">kill-buffer</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">))))</span></div><div class='line' id='LC52'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">compile</span> <span class="p">(</span><span class="nf">gradle-make-command</span> <span class="nv">tasks</span><span class="p">))))</span></div><div class='line' id='LC53'><br/></div><div class='line' id='LC54'><span class="p">(</span><span class="nf">defun</span> <span class="nv">gradle-make-command</span> <span class="p">(</span><span class="nf">tasks</span><span class="p">)</span></div><div class='line' id='LC55'>&nbsp;&nbsp;<span class="p">(</span><span class="nf">concat</span> <span class="p">(</span><span class="nf">gradle-executable-path</span><span class="p">)</span></div><div class='line' id='LC56'>	  <span class="p">(</span><span class="nf">when</span> <span class="nv">tasks</span> <span class="p">(</span><span class="nf">mapconcat</span> <span class="ss">&#39;identity</span> <span class="p">(</span><span class="nb">cons </span><span class="s">&quot;&quot;</span> <span class="nv">tasks</span><span class="p">)</span> <span class="s">&quot; &quot;</span><span class="p">))))</span></div><div class='line' id='LC57'><br/></div><div class='line' id='LC58'><span class="p">(</span><span class="nf">defvar</span> <span class="nv">gradle-mode-map</span></div><div class='line' id='LC59'>&nbsp;&nbsp;<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nb">map </span><span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span></div><div class='line' id='LC60'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g b&quot;</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nf">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nf">gradle-execute</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;build&quot;</span><span class="p">))))</span></div><div class='line' id='LC61'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g t&quot;</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nf">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nf">gradle-execute</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">))))</span></div><div class='line' id='LC62'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g C-d b&quot;</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nf">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nf">gradle-execute</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;build&quot;</span> <span class="s">&quot;--daemon&quot;</span><span class="p">))))</span></div><div class='line' id='LC63'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g C-d t&quot;</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nf">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nf">gradle-execute</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;test&quot;</span>  <span class="s">&quot;--daemon&quot;</span><span class="p">))))</span></div><div class='line' id='LC64'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g d&quot;</span><span class="p">)</span> <span class="ss">&#39;gradle-execute-daemon-interactive</span><span class="p">)</span></div><div class='line' id='LC65'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">kbd</span> <span class="s">&quot;C-c C-g r&quot;</span><span class="p">)</span> <span class="ss">&#39;gradle-execute-interactive</span><span class="p">)</span></div><div class='line' id='LC66'>&nbsp;&nbsp;&nbsp;&nbsp;<span class="nv">map</span><span class="p">)</span></div><div class='line' id='LC67'>&nbsp;&nbsp;<span class="s">&quot;Keymap for the gradle minor mode.&quot;</span><span class="p">)</span></div><div class='line' id='LC68'><br/></div><div class='line' id='LC69'><span class="c1">;;;###autoload</span></div><div class='line' id='LC70'><span class="p">(</span><span class="nf">define-minor-mode</span> <span class="nv">gradle-mode</span></div><div class='line' id='LC71'>&nbsp;&nbsp;<span class="s">&quot;Gradle Mode -- run gradle from any buffer, will scan up for nearest gradle build file in a directory and run the command.&quot;</span></div><div class='line' id='LC72'>&nbsp;&nbsp;<span class="nv">:lighter</span> <span class="s">&quot; gra&quot;</span></div><div class='line' id='LC73'>&nbsp;&nbsp;<span class="nv">:keymap</span> <span class="ss">&#39;gradle-mode-map</span></div><div class='line' id='LC74'>&nbsp;&nbsp;<span class="nv">:global</span> <span class="nv">t</span><span class="p">)</span></div><div class='line' id='LC75'><br/></div><div class='line' id='LC76'><span class="p">(</span><span class="nf">provide</span> <span class="ss">&#39;gradle-mode</span><span class="p">)</span></div><div class='line' id='LC77'><br/></div><div class='line' id='LC78'><span class="c1">;; gradle-mode.el ends here</span></div></pre></div></td>
+          </tr>
+        </table>
   </div>
 
-          </div>
-        </div>
-
-        <a href="#jump-to-line" rel="facebox" data-hotkey="l" class="js-jump-to-line" style="display:none">Jump to Line</a>
-        <div id="jump-to-line" style="display:none">
-          <h2>Jump to Line</h2>
-          <form accept-charset="UTF-8" class="js-jump-to-line-form">
-            <input class="textfield js-jump-to-line-field" type="text">
-            <div class="full-button">
-              <button type="submit" class="button">Go</button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
+  </div>
 </div>
 
-<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
-  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543528" height="64" width="64">
+<a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" class="js-jump-to-line" style="display:none">Jump to Line</a>
+<div id="jump-to-line" style="display:none">
+  <form accept-charset="UTF-8" class="js-jump-to-line-form">
+    <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" autofocus>
+    <button type="submit" class="button">Go</button>
+  </form>
 </div>
 
-
         </div>
-      </div>
+
+      </div><!-- /.repo-container -->
       <div class="modal-backdrop"></div>
-    </div>
-
-      <div id="footer-push"></div><!-- hack for sticky footer -->
-    </div><!-- end of wrapper - hack for sticky footer -->
-
-      <!-- footer -->
-      <div id="footer">
-  <div class="container clearfix">
-
-      <dl class="footer_nav">
-        <dt>GitHub</dt>
-        <dd><a href="/about">About us</a></dd>
-        <dd><a href="/blog">Blog</a></dd>
-        <dd><a href="/contact">Contact &amp; support</a></dd>
-        <dd><a href="http://enterprise.github.com/">GitHub Enterprise</a></dd>
-        <dd><a href="http://status.github.com/">Site status</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Applications</dt>
-        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
-        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
-        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
-        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Services</dt>
-        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
-        <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
-        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
-        <dd><a href="http://jobs.github.com/">Job board</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Documentation</dt>
-        <dd><a href="http://help.github.com/">GitHub Help</a></dd>
-        <dd><a href="http://developer.github.com/">Developer API</a></dd>
-        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
-        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>More</dt>
-        <dd><a href="http://training.github.com/">Training</a></dd>
-        <dd><a href="/edu">Students &amp; teachers</a></dd>
-        <dd><a href="http://shop.github.com">The Shop</a></dd>
-        <dd><a href="/plans">Plans &amp; pricing</a></dd>
-        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
-      </dl>
-
-      <hr class="footer-divider">
+    </div><!-- /.container -->
+  </div><!-- /.site -->
 
 
-    <p class="right">&copy; 2013 <span title="0.03744s from fe1.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
-    <a class="left" href="/">
-      <span class="mega-octicon octicon-mark-github"></span>
-    </a>
-    <ul id="legal">
-        <li><a href="/site/terms">Terms of Service</a></li>
-        <li><a href="/site/privacy">Privacy</a></li>
-        <li><a href="/security">Security</a></li>
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com">API</a></li>
+      <li><a href="http://training.github.com">Training</a></li>
+      <li><a href="http://shop.github.com">Shop</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About</a></li>
+
     </ul>
 
-  </div><!-- /.container -->
+    <a href="/">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
 
-</div><!-- /.#footer -->
+    <ul class="site-footer-links">
+      <li>&copy; 2014 <span title="0.03949s from github-fe118-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="/site/terms">Terms</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
 
 
     <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
   <div class="fullscreen-container js-fullscreen-container">
     <div class="textarea-wrap">
       <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
-          <div class="suggester-container">
-              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
-                 data-url="/djmijares/emacs-gradle-mode/suggestions/commit">
-              </div>
-          </div>
     </div>
   </div>
   <div class="fullscreen-sidebar">
-    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
       <span class="mega-octicon octicon-screen-normal"></span>
     </a>
-    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
-      title="Switch themes">
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
+      aria-label="Switch themes">
       <span class="octicon octicon-color-mode"></span>
     </a>
   </div>
@@ -523,13 +601,10 @@
 
     <div id="ajax-error-message" class="flash flash-error">
       <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-remove-close close js-ajax-error-dismiss"></a>
       Something went wrong with that request. Please try again.
-      <a href="#" class="octicon octicon-remove-close ajax-error-dismiss"></a>
     </div>
 
-    
-    <span id='server_response_time' data-time='0.03785' data-host='fe1'></span>
-    
   </body>
 </html>
 
