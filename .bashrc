@@ -43,7 +43,11 @@ PS1='\[\033[0;36m\]\u \[\033[0;32m\]\h:\[\033[0;33m\]\w\[\033[0;35m\] $(__git_ps
 export PS1=$PS1
 
 #phpenv
-eval "${phpenv init -}"
+#eval "${phpenv init -}"
+
+# Laucnch an app setting screen in the device
+# http://qiita.com/t2low/items/4ec1e9cab8621cd23396
+appinfo() { adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:$1; }
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
