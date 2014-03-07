@@ -49,6 +49,9 @@ export PS1=$PS1
 # http://qiita.com/t2low/items/4ec1e9cab8621cd23396
 appinfo() { adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:$1; }
 
+# users
+alias listusers="cut -d: -f1 /etc/passwd"
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
 
