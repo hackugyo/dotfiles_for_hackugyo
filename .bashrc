@@ -50,6 +50,7 @@ export PS1=$PS1
 appinfo() { adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:$1; }
 
 # users
+# http://kazmax.zpp.jp/linux_beginner/etc_passwd.html
 alias listusers="cut -d: -f1 /etc/passwd"
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
