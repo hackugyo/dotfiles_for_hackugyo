@@ -53,6 +53,12 @@ appinfo() { adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS 
 # http://kazmax.zpp.jp/linux_beginner/etc_passwd.html
 alias listusers="cut -d: -f1 /etc/passwd"
 
+# List usb devices up.
+# http://qiita.com/jumbOS5/items/98b84da339833e42df8a
+alias usb_list="system_profiler SPUSBDataType"
+alias list_usbs="system_profiler SPUSBDataType"
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
 
