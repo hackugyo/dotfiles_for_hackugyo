@@ -36,16 +36,21 @@ export HISTFILESIE=9999 # 履歴ファイルの保存履歴数を指定
 export HISTCONTROL=ignoreups # 同じコマンドが連続した場合に1k回だけ記録する
 export HISTIGNORE=history # historyじしんの呼び出しは記録しない
 
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
-
 # color Terminal
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # DYLD_LIBRARY_PATH bug of Mac
 # http://qiita.com/dvorak__/items/4e365746adc8f56e9764
 unset LD_LIBRARY_PATH
 unset DYLD_LIBRARY_PATH
+
+# binにパスを通す
+MyBIN="${HOME}/bin"
+if [ ! -d "${MyBIN}" ] ;then mkdir "${MyBIN}" ;fi
+PATH="${MyBIN}:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"

@@ -15,7 +15,8 @@ emacsc() { emacsclient $1 --no-wait; }
 # http://d.hatena.ne.jp/syohex/20101224/1293206906
 
 # rmtrash
-alias rm='rmtrash'
+#alias rm='rmtrash'
+# rmtrashは-rオプションを受け付けないので，aliasして使えない．
 alias mv='mv -i'
 
 # ag
@@ -56,8 +57,62 @@ alias listusers="cut -d: -f1 /etc/passwd"
 # List usb devices up.
 # http://qiita.com/jumbOS5/items/98b84da339833e42df8a
 alias usb_list="system_profiler SPUSBDataType"
-alias list_usbs="system_profiler SPUSBDataType"
+alias list_usbs="usb_list"
 
+# List JDK versions up.
+# http://qiita.com/mas0061/items/2fe9333f045800d00b5c
+alias java_list="/usr/libexec/java_home -V"
+alias list_javas="java_list"
+alias java_version="/usr/libexec/java_home" # java -version
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.6.0`
+
+# Find a file by name, and open the selected result by emacs or atom.
+# powerd by percol.
+emacsfind() { find ./ -name $1 | percol | xargs emacsclient --no-wait; }
+atomfind() { find ./ -name $1 | percol | xargs atom; }
+openfind() { find $1 -name $2 | percol | xargs open; }
+alias findemacs="emacsfind"
+alias findatom="atomfind"
+alias findopen="findopen"
+
+
+# alias cd to pushd, bd to popd
+# http://rcmdnk.github.io/blog/2013/04/10/computer-bash/
+function cd {
+    if [ $# = 0 ];then
+        command cd
+    elif [ "$1" = "-" ];then
+        local opwd=$OLDPWD
+        pushd . >/dev/null
+        command cd $opwd
+    elif [ -f "$1" ];then
+        pushd . >/dev/null
+        command cd $(dirname "$@")
+    else
+        pushd . >/dev/null
+        command cd "$@"
+    fi
+}
+alias bd="popd >/dev/null"
+
+# count string length
+# http://linux.just4fun.biz/逆引きシェルスクリプト/文字列の長さを調べる方法.html
+count_length() {
+    variable_for_count_length=$1;
+    echo ${#variable_for_count_length};
+    variable_for_count_length='';
+}
+
+# Ctrl+Sでターミナルへの出力をロックされると腹立つので，
+# 解除しておく
+# http://gordonshumway.seesaa.net/article/127966445.html
+stty stop undef
+
+# bash-completion
+# http://qiita.com/soramugi/items/846e6eac0ce1d3dc1e42
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"

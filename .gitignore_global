@@ -1,4 +1,4 @@
-*~
+
 .DS_Store
 local.properties
 
@@ -9,3 +9,11 @@ local.properties
 
 # AWS Tool
 AWS-ElasticBeanstalk/*
+
+# silver searcher (ag) ignore file
+.agignore
+
+# rvm ignore file
+.rvmrc
+.ruby-version
+.ruby-gemset

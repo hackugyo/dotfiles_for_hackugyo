@@ -621,6 +621,28 @@ static char * arrow_right[] = {
 (require 'hiwin)
 (hiwin-mode)
 
+;========================================
+; Mac用フォント設定
+;========================================
+
+ ;; 英語
+ (set-face-attribute 'default nil
+             :family "Menlo" ;; font
+             :height 120)    ;; font size
+
+;; 日本語
+(set-fontset-font
+ nil 'japanese-jisx0208
+;; (font-spec :family "Hiragino Mincho Pro")) ;; font
+  (font-spec :family "Noto Sans Japanese")) ;; font
+
+;; 半角と全角の比を1:2にしたければ
+(setq face-font-rescale-alist
+;;        '((".*Hiragino_Mincho_pro.*" . 1.2)))
+;;      '((".*Hiragino_Kaku_Gothic_ProN.*" . 1.2)));; Mac用
+      '((".*Noto Sans Japanese.*" . 1.2)));; Mac用
+
+
 ;====================================
 ;;全角スペースとかに色を付ける
 ;; http://ubulog.blogspot.jp/2007/09/emacs_09.html
@@ -678,3 +700,47 @@ static char * arrow_right[] = {
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'gradle-mode)
 (gradle-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;
+;; "リージョンの各行に行番号とファイル名をつけてヤンクバッファにコピー"
+;; http://www.bookshelf.jp/soft/meadow_32.html#SEC454
+;;;;;;;;;;;;;;;;;;;;
+(defun copy-region-with-info (arg)
+  "リージョンの各行に行番号とファイル名をつけてヤンクバッファにコピー
+   C-u で数引数をつけると、ファイル名がフルパスで付与される"
+  (interactive "p")
+  (save-excursion
+    (let ((e (max (region-end) (region-beginning)))
+          (b (min (region-end) (region-beginning)))
+          (str)
+          (first t))
+      (goto-char b)
+      (while (<= (+ (point) 1) e)
+        (beginning-of-line)
+        (setq str
+              (format
+               "%s:%d:%s"
+               (if (not (eq arg 1))
+                   (buffer-file-name)
+                 (buffer-name))
+               (1+ (count-lines 1 (point)))
+               (buffer-substring
+                (point)
+                (progn
+                  (end-of-line)
+                  (if (eobp)
+                      (signal 'end-of-buffer nil))
+                  (forward-char)
+                  (point)))))
+        (backward-char)
+        (if (not first)
+            (kill-append str nil)
+          (setq kill-ring
+                (cons str
+                      kill-ring))
+          (if (> (length kill-ring) kill-ring-max)
+              (setcdr (nthcdr (1- kill-ring-max) kill-ring) nil))
+          (setq kill-ring-yank-pointer kill-ring)
+          (setq first nil))
+        (forward-line 1)))))
+(put 'set-goal-column 'disabled nil)
