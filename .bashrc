@@ -30,6 +30,9 @@ alias show_path='echo -e ${PATH//:/\\n}'
 # reload bashrc
 alias reload_bashrc='source ~/.bashrc'
 
+# oneliners
+alias oneliners='sh ~/git/oneliners/oneliners.sh'
+
 # bashmarks
 source ~/.local/bin/bashmarks.sh
 

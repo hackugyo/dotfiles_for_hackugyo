@@ -691,25 +691,13 @@ static char * arrow_right[] = {
   (setq-default save-place t)
   (setq save-place-file "~/.emacs.d/saved-places"))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; php-mode
-;; https://github.com/ejmr/php-modeだと動作しなかったので
-;; php-mode-improved.elでインストールした
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(when (require 'php-mode nil t)
-  (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
-  (setq php-search-url "http://jp.php.net/ja/")
-  (setq php-manual-url "http://jp.php.net/manual/ja/"))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; gradle-mode
 ; install-elipsコマンドでインストールした
 ; https://github.com/jacobono/emacs-gradle-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'gradle-mode)
-(gradle-mode 1)
+;; (require 'gradle-mode)
+;; (gradle-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; "リージョンの各行に行番号とファイル名をつけてヤンクバッファにコピー"
