@@ -23,6 +23,9 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+# sudoでも補完
+complete -cf sudo
+
 # bashでコマンド履歴を共有する
 function share_history {  # 以下の内容を関数として定義
     history -a  # .bash_historyに前回コマンドを1行追記
