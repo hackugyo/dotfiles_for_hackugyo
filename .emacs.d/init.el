@@ -621,6 +621,16 @@ static char * arrow_right[] = {
 (require 'hiwin)
 (hiwin-mode)
 
+;; http://qiita.com/scalper/items/c98f97ecc516aaaa8c32
+(if (eq window-system 'ns)
+    (progn
+      ; ここにGUIアプリとして起動したときの設定を追加
+      ;; menu-barを非表示
+      (menu-bar-mode 0)
+
+      (server-start) ; server起動
+      ))
+
 ;========================================
 ; Mac用フォント設定
 ;========================================

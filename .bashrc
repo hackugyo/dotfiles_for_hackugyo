@@ -9,8 +9,9 @@ PATH=$PATH:$HOME/.phpenv/bin
 # Android NDK
 NDKROOT=$HOME/Developer/Android/android-ndk-r9b
 
-# emacs23.4
-alias emacs='/usr/local/Cellar/emacs/23.4/Emacs.app/Contents/MacOS/Emacs -nw'
+# emacs24.3でビルドした
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
 emacsc() { emacsclient $1 --no-wait; }
 # http://d.hatena.ne.jp/syohex/20101224/1293206906
 
