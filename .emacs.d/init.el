@@ -742,3 +742,26 @@ static char * arrow_right[] = {
           (setq first nil))
         (forward-line 1)))))
 (put 'set-goal-column 'disabled nil)
+
+
+;========================================
+;; はてなダイアリー
+;; http://d.hatena.ne.jp/tarao/20130110/1357821338
+;; 依存先としてsha1-el.elが必要
+;========================================
+; (add-to-load-path "/public_repos/hatena-dialy")
+; (add-to-load-path "/public_repos/hatena-markup-mode")
+; (require 'hatena-diary)
+; (setq hatena:d:major-mode 'hatena:markup-mode)
+; うまく動かなかった
+;========================================
+; はてな記法
+; http://d.hatena.ne.jp/amt/20060115/HatenaHelperMode
+;========================================
+(add-to-load-path "/public_repos/hatena-mode")
+(require 'hatenahelper-mode)
+;(add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; 本当はこう
+(add-hook 'hatena-mode-hook
+	  '(lambda ()
+          ; other hooks must be wrote here!
+	     (hatenahelper-mode 1)))
