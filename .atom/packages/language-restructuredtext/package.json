@@ -1,0 +1,27 @@
+{
+  "name": "language-restructuredtext",
+  "version": "0.2.0",
+  "private": true,
+  "description": "RestructuredText Language Support",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lukasa/language-restructuredtext"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# ReStructured Text language support in Atom\n\nAdds syntax highlighting and snippets to ReStructuredText file in Atom.\n\nOriginally [converted](https://atom.io/docs/latest/converting-a-text-mate-bundle) from the [ReStructuredText TextMate bundle](https://github.com/textmate/restructuredtext.tmbundle).\n\nContributions are greatly appreciated.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Lukasa/language-restructuredtext/issues"
+  },
+  "homepage": "https://github.com/Lukasa/language-restructuredtext",
+  "_id": "language-restructuredtext@0.2.0",
+  "dist": {
+    "shasum": "ebf5f1ce962d8735c0d1817e209c0ef6f81da18f"
+  },
+  "_resolved": "/var/folders/4v/n0qrk73174vd579jjcn37k4c0000gp/T/d-114512-45717-87og67/package.tgz",
+  "_from": "/var/folders/4v/n0qrk73174vd579jjcn37k4c0000gp/T/d-114512-45717-87og67/package.tgz"
+}
