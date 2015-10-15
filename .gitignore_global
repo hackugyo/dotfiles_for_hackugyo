@@ -17,3 +17,6 @@ AWS-ElasticBeanstalk/*
 .rvmrc
 .ruby-version
 .ruby-gemset
+
+# cd-reminder
+.cd-reminder
