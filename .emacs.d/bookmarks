@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("init.el"
+(("tips_misc.rst"
+ (filename . "~/daily_working_log/log/tips/tips_misc.rst")
+ (front-context-string . "\n- Cmd + Opt + A")
+ (rear-context-string . "pseが勝手にJUNOになった件")
+ (position . 7974))
+("init.el"
  (filename . "~/.emacs.d/init.el")
  (front-context-string . "\n;; Emacs 23より前の")
  (rear-context-string)
