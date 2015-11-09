@@ -7,3 +7,5 @@
 .emacs.d/elpa/
 .emacs.d/ac-comphist.dat
 .emacs.d/saved-places
+
+.bash/conf/env-init.bash
