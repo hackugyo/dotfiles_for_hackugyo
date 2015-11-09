@@ -134,39 +134,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
-;;; saveされたらgit nowする
-;; 
-;; shell-commandの代わりにcall-process-shell-command
-;; http://stackoverflow.com/questions/11613974/how-can-the-shell-command-output-buffer-be-kept-in-the-background
-;; git 2.0からは，サブディレクトリの中にいるときgit管理下ディレクトリをupdateできないようになるので，
-;; コロンをつけて全部updateしてほしい旨を明示した
-(when (executable-find "git")
-  (defun gitnow-after-save-hook ()
-    (call-process-shell-command
-     (format
-      "git now : &"
-      (buffer-name (current-buffer)))
-     nil "*Shell Command Output*" t))
-  (add-hook 'after-save-hook 'gitnow-after-save-hook)
-  )
-
-(defun gitnow-after-save ()
-  (interactive)
-  (when (executable-find "git")
-    (add-hook 'after-save-hook 'gitnow-after-save-hook)))
-
-(defun gitnow-remove-after-save ()
-  (interactive)
-  (when (executable-find "git")
-    (remove-hook 'after-save-hook 'gitnow-after-save-hook)))
-
-;; http://superuser.com/a/621290
-;; Do not use rebase-mode. 
-;; The rebase-mode in emacs is read-only and not use-friendly.
-(setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
-                              auto-mode-alist))
-
-
 ;; http://pokutech.hatenablog.com/entry/2012/07/14/233900
 ;; バッファローカルに，shell-commandを実行する一時的なafter-save-hookを追加するelispを追加する．
 ;; 動作しない．
@@ -393,13 +360,3 @@
         (find-alternate-file (concat "/sudo::" file-name))
       (error "Cannot get a file name"))))
 
-;;========================================
-;; web-mode
-;;========================================
-;; 拡張子の設定
-(add-to-list 'auto-mode-alist '("\\.phtml$"     . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp$"       . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x$"   . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb$"       . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?$"     . web-mode))

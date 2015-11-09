@@ -3,3 +3,7 @@
 .atom/packages/
 .atom/compile-cache/
 .atom/storage/
+
+.emacs.d/elpa/
+.emacs.d/ac-comphist.dat
+.emacs.d/saved-places
