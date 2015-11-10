@@ -13,3 +13,4 @@
 .emacs.d/url
 
 .bash/conf/env-init.bash
+.bash/conf/editor-init.bash
