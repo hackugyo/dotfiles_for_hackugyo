@@ -9,5 +9,7 @@
 .emacs.d/saved-places
 .emacs.d/elisp
 .emacs.d/public_repos
+.emacs.d/eshell
+.emacs.d/url
 
 .bash/conf/env-init.bash
