@@ -6,21 +6,17 @@ PATH=$PATH:$HOME/.phpenv/bin
 
 #dyld(Dynamic Loader)
 if [ -n "$DYLD_LIBRARY_PATH" ]; then
-DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
+    DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
 else
-DYLD_LIBRARY_PATH=/usr/local/lib
+    DYLD_LIBRARY_PATH=/usr/local/lib
 fi
-export DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/usr/lib/:$DYLD_LIBRARY_PATH
 
 # Android NDK
 NDKROOT=$HOME/Developer/Android/android-ndk-r9b
 
 # nodebrew
 PATH=$HOME/.nodebrew/current/bin:$PATH
-
-
-# EDITOR
-export EDITOR=~/opt/emacs-24.4/bin/emacsclient
 
 # sudo に続くコマンドの補完を有効にする
 # sudo completion
@@ -82,3 +78,4 @@ bash_conf=~/.bash/conf
 . $bash_conf/alias-init.bash
 . $bash_conf/env-init.bash
 . $bash_conf/func-init.bash
+. $bash_conf/editor-init.bash
