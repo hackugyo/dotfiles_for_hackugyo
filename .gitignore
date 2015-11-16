@@ -11,6 +11,7 @@
 .emacs.d/public_repos
 .emacs.d/eshell
 .emacs.d/url
+.emacs.d/el-get/
 
 .bash/conf/env-init.bash
 .bash/conf/editor-init.bash
