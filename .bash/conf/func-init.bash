@@ -1,6 +1,11 @@
 
 gsearch() {
-    (argv=("$@"); \
+    (if [ -p /dev/stdin ]; then
+         a=$(cat -)
+     else
+         a=$1
+     fi;\
+     argv=("$a"); \
      # arr=$(for v in "${argv[@]}"; do echo "$v"; done); \
      arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
      str="$(IFS=" "; echo "${arr[*]}")"; \
@@ -9,8 +14,14 @@ gsearch() {
      )
 }
 
-gsearch_d() { 
-    (argv=("$@"); \
+gsearch_d() {
+    (if [ -p /dev/stdin ]; then
+         # echo "pipe!"
+         a=$(cat -)
+     else
+         a=$1
+     fi;\
+     argv=("$a"); \
      str="$(echo $argv | nkf -wMQ | tr = %)"; \
      open https://www.google.co.jp/search?btnI'&'q="$str";\
      )
