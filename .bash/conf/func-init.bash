@@ -9,6 +9,12 @@ gsearch() {
      )
 }
 
+gsearch_d() { 
+    (argv=("$@"); \
+     str="$(echo $argv | nkf -wMQ | tr = %)"; \
+     open https://www.google.co.jp/search?btnI'&'q="$str";\
+     )
+}
 
 # reminder_cd
 # .cd-reminderファイルを置いたディレクトリに移動したときにメッセージを出す
