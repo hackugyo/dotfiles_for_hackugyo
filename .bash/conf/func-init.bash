@@ -1,11 +1,11 @@
 
 gsearch() {
     (if [ -p /dev/stdin ]; then
-         a=$(cat -)
+         argv=$(cat -)
      else
-         a=$1
+         argv=("$@")
      fi;\
-     argv=("$a"); \
+     #argv=("$@"); \
      # arr=$(for v in "${argv[@]}"; do echo "$v"; done); \
      arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
      str="$(IFS=" "; echo "${arr[*]}")"; \
@@ -19,10 +19,11 @@ gsearch_d() {
          # echo "pipe!"
          a=$(cat -)
      else
-         a=$1
+         a=$@
      fi;\
      argv=("$a"); \
-     str="$(echo $argv | nkf -wMQ | tr = %)"; \
+     # http://u-tamax.jp/2012/08/nkfでurlエンコード/
+     str="$(echo -n $argv | nkf -wMQ | sed 's/=$//g' | tr = % | tr -d "\n")"; \
      open https://www.google.co.jp/search?btnI'&'q="$str";\
      )
 }
