@@ -1,6 +1,11 @@
 
 gsearch() {
-    (argv=("$@"); \
+    (if [ -p /dev/stdin ]; then
+         argv=$(cat -)
+     else
+         argv=("$@")
+     fi;\
+     #argv=("$@"); \
      # arr=$(for v in "${argv[@]}"; do echo "$v"; done); \
      arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
      str="$(IFS=" "; echo "${arr[*]}")"; \
@@ -9,6 +14,19 @@ gsearch() {
      )
 }
 
+gsearch_d() {
+    (if [ -p /dev/stdin ]; then
+         # echo "pipe!"
+         a=$(cat -)
+     else
+         a=$@
+     fi;\
+     argv=("$a"); \
+     # http://u-tamax.jp/2012/08/nkfでurlエンコード/
+     str="$(echo -n $argv | nkf -wMQ | sed 's/=$//g' | tr = % | tr -d "\n")"; \
+     open https://www.google.co.jp/search?btnI'&'q="$str";\
+     )
+}
 
 # reminder_cd
 # .cd-reminderファイルを置いたディレクトリに移動したときにメッセージを出す
