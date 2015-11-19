@@ -13,8 +13,8 @@ alias mv='mv -i'
 
 # ag
 # http://qiita.com/yuyuchu3333/items/4c57186e37db9eb3db15
-alias ag='ag --smart-case --color --stats --after 0' # --pager "less -F"'
-alias agag='ag'
+alias ag='ag --smart-case --color --stats -A 0' # --pager "less -F"'
+alias agag='\ag'
 alias ag_filenames='ag --smart-case --color --stats --files-with-matches'
 
 # show path
