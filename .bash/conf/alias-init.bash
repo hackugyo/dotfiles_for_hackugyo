@@ -42,6 +42,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
 
 # java
 alias java_home='/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home'
-
+alias javac="javac -J-Dfile.encoding=UTF-8"
+alias java="java -Dfile.encoding=UTF-8"
 
 alias sourcetree='open -a SourceTree'

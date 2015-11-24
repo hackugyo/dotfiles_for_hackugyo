@@ -86,7 +86,7 @@ adbbrowse() {
 
 # http://qiita.com/hackugyo/items/a8688cb3ea236375d758
 adb_all() {
-    adb devices | sed '1d' | sed -e "s/device//" | sed '/^$/d' | while read i; do  echo ""; echo " -- " ${i}; adb -s ${i} $@; done;
+    adb devices | sed '1d' | sed -e "s/device//" | sesinad '/^$/d' | while read i; do  echo ""; echo " -- " ${i}; adb -s ${i} $@; done;
 }
 
 # Launch an app setting screen in the device
