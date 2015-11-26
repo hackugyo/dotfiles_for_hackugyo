@@ -10,7 +10,7 @@ gsearch() {
      arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
      str="$(IFS=" "; echo "${arr[*]}")"; \
      echo search by $str; \
-     open  https://www.google.co.jp/search?q="$str";\
+     open  https://www.google.co.jp/search?q="$str" & exit;\
      )
 }
 
@@ -24,7 +24,7 @@ gsearch_d() {
      argv=("$a"); \
      # http://u-tamax.jp/2012/08/nkfでurlエンコード/
      str="$(echo -n $argv | nkf -wMQ | sed 's/=$//g' | tr = % | tr -d "\n")"; \
-     open https://www.google.co.jp/search?btnI'&'q="$str";\
+     open https://www.google.co.jp/search?btnI'&'q="$str" & exit\
      )
 }
 
@@ -86,7 +86,7 @@ adbbrowse() {
 
 # http://qiita.com/hackugyo/items/a8688cb3ea236375d758
 adb_all() {
-    adb devices | sed '1d' | sed -e "s/device//" | sesinad '/^$/d' | while read i; do  echo ""; echo " -- " ${i}; adb -s ${i} $@; done;
+    adb devices | sed '1d' | sed -e "s/device//" | sed '/^$/d' | while read i; do  echo ""; echo " -- " ${i}; adb -s ${i} $@; done;
 }
 
 # Launch an app setting screen in the device

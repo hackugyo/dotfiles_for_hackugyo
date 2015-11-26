@@ -28,3 +28,5 @@
     ]
   autocomplete:
     includeCompletionsFromAllBuffers: true
+  "atom-beautify":
+    _analyticsUserId: "d539dcb9-bb89-4665-91b3-500313c86f78"
