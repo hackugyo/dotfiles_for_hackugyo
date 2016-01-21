@@ -11,7 +11,7 @@ gsearch() {
      str="$(IFS=" "; echo "${arr[*]}")"; \
      echo search by $str; \
      open  https://www.google.co.jp/search?q="$str" & exit;\
-     )
+     ) &
 }
 
 gsearch_d() {
@@ -25,7 +25,7 @@ gsearch_d() {
      # http://u-tamax.jp/2012/08/nkfでurlエンコード/
      str="$(echo -n $argv | nkf -wMQ | sed 's/=$//g' | tr = % | tr -d "\n")"; \
      open https://www.google.co.jp/search?btnI'&'q="$str" & exit\
-     )
+     ) &
 }
 
 # reminder_cd
@@ -99,3 +99,14 @@ appsinfo() {
     adb_all shell 'pm list packages -f';
 }
 
+clone_all_branch() { # 一発で全ブランチをcloneする
+    (set -eu -o pipefail; \
+     repo=${2:-"repo"}; \
+     origin=$1; \
+     git clone $origin $repo; \
+     cd $repo; \
+     for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master `; do \
+         git branch --track ${branch#remotes/origin/} $branch;\
+     done;\
+    ) 
+}

@@ -46,3 +46,6 @@ alias javac="javac -J-Dfile.encoding=UTF-8"
 alias java="java -Dfile.encoding=UTF-8"
 
 alias sourcetree='open -a SourceTree'
+
+# Xcode
+alias xcodeclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Library/Caches/com.apple.dt.Xcode/*"
