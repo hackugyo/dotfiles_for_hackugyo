@@ -1,3 +1,14 @@
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+
+(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
 ;; 環境変数を基準に
 ;; http://sakito.jp/emacs/emacsshell.html#path
 ;; より下に記述した物が PATH の先頭に追加されます
@@ -458,11 +469,19 @@ static char * arrow_right[] = {
              :family "Menlo" ;; font
              :height 120)    ;; font size
 
+
 ;; 日本語
 ;;(set-fontset-font
 ;; nil 'japanese-jisx0208
 ;; (font-spec :family "Hiragino Mincho Pro")) ;; font
 ;;  (font-spec :family "Noto Sans Japanese")) ;; font
+(set-fontset-font (frame-parameter nil 'font)
+                  'japanese-jisx0208
+                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 12))
+;; http://blog.livedoor.jp/tek_nishi/archives/8590439.html
+(add-to-list 'face-font-rescale-alist
+             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
+
 
 ;; 半角と全角の比を1:2にしたければ
 (setq face-font-rescale-alist
@@ -680,3 +699,21 @@ static char * arrow_right[] = {
 ;; カーソルのある行をハイライトするのが重たい
 (global-hl-line-mode -1)
 (blink-cursor-mode 1)
+
+;; el-get
+(el-get-bundle hatena-markup-mode
+       :type http
+       :url "http://gist.github.com/raw/4428666/hatena-markup-mode.el")
+(require 'hatena-markup-mode)
+(setq hatena:d:major-mode 'hatena:markup-mode)
+
+;; markdown
+;; tabで入れたやつが削除されてしまう問題
+;; http://tasuwo.github.io/blog/2015/03/17/title/
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist (cons '("\\.md" . gfm-mode) auto-mode-alist))
+
+(add-hook 'gfm-mode-hook
+          '(lambda ()
+             (setq global-linum-mode nil)
+             (electric-indent-local-mode -1)))
