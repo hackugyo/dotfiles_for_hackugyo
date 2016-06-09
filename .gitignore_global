@@ -25,7 +25,7 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
+# *.sql # sql文
 *.sqlite
  
 # OS generated files #
@@ -93,7 +93,10 @@ tramp
 ################
 
 my_script_*.sh
+# ローカルディレクトリにcdで入ったとき，Welcomeメッセージを表示する
 .cd-reminder
+# ローカルリポジトリに，対応RedmineのURLを登録しておく
+.redmine
 
 # Silver Searcher #
 ###################

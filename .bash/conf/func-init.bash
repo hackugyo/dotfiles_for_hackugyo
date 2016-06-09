@@ -28,6 +28,22 @@ gsearch_d() {
      ) &
 }
 
+tsearch() {
+    (if [ -p /dev/stdin ]; then
+         argv=$(cat -)
+     else
+         argv=("$@")
+     fi;\
+     #argv=("$@"); \
+     # arr=$(for v in "${argv[@]}"; do echo "$v"; done); \
+     arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
+     str="$(IFS=" "; echo "${arr[*]}")"; \
+     echo search by $str; \
+     open https://twitter.com/search?f=tweets'&'vertical=default'&'q="$str"'&'src=typed & exit;\
+    ) &
+}
+
+
 # reminder_cd
 # .cd-reminderファイルを置いたディレクトリに移動したときにメッセージを出す
 # ただしpushdを使う．pushdはよけいなことを標準出力するので無視させる
@@ -109,4 +125,63 @@ clone_all_branch() { # 一発で全ブランチをcloneする
          git branch --track ${branch#remotes/origin/} $branch;\
      done;\
     ) 
+}
+
+redmine() {
+    (set -eu -o pipefail; \
+     cat .redmine | xargs open;
+    )
+}
+
+git_origin() {
+    (set -eu -o pipefail; \
+     commit_hash=${1:-""}; \
+     blob_where=${2:-""};
+     if [ -n "${commit_hash}" ]; then \
+         if [ -n "${blob_where}" ]; then \
+             commit_hash="/blob/${commit_hash}/${blob_where}"; \
+         else \
+             commit_hash="/commits/${commit_hash}"; \
+         fi; \
+     fi; \
+     git remote -v | grep origin | \
+         sed -e 's/origin//' | \
+         sed -e 's/\/git\//\//' | \
+         sed -e 's/\.git (.*$//' | \
+         sed -e 's/git@github.com:/https:\/\/github.com\//' | \
+         head -n 1 | \
+         xargs -I {} echo {}${commit_hash};
+    )
+}
+
+git_open_origin() {
+    (set -eu -o pipefail; \
+     commit_hash=${1:-""}; \
+     blob_where=${2:-""}; \
+     git_origin ${commit_hash} ${blob_where} | open_url;
+    )
+}
+
+open_url() {
+    if [ -p /dev/stdin ]; then
+        cat -
+    else
+        echo
+    fi | xargs -I {} open {}
+}
+
+chrome_open_url() {
+    if [ -p /dev/stdin ]; then
+        cat -
+    else
+        echo
+    fi | xargs -I {} open -a /Applications/Google\ Chrome.app/ {}
+}
+
+git_open_origin_chrome() {
+    (set -eu -o pipefail; \
+     commit_hash=${1:-""}; \
+     blob_where=${2:-""}; \
+     git_origin ${commit_hash} ${blob_where} | chrome_open_url;
+    )
 }

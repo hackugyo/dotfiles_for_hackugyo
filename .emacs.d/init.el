@@ -43,13 +43,6 @@
 (define-key global-map "\C-u" 'universal-argument)
 ;; なぜか明示的に追加しても無効なのでCmd+uを割り当てた
 (global-set-key (kbd "s-u") 'universal-argument)
-
-;; smooth-scroll
-(require 'smooth-scroll)
-(smooth-scroll-mode t)
-;; マウス・スクロールを滑らかにする（Mac Emacs 専用）
-(setq mac-mouse-wheel-smooth-scroll t)
-
 ;; 
 (setq scroll-conservatively 1000)
 (setq scroll-step 1)
@@ -288,7 +281,8 @@ static char * arrow_right[] = {
 (require 'smooth-scroll)
 (smooth-scroll-mode t)
 (scroll-bar-mode -1)
-
+;; マウス・スクロールを滑らかにする（Mac Emacs 専用）
+(setq mac-mouse-wheel-smooth-scroll t)
 
 ;; filecache
 ;;あらかじめディレクトリ名のリストを作成しておくと、カレントディレクトリがどこであるかにかかわらず、指定したディレクトリ以下のファイルはパスを辿らずに簡単に補完して開くことができます。

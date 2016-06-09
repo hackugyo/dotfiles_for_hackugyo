@@ -11,10 +11,6 @@ MANPATH=/opt/local/man:$MANPATH
 PGDATA=/usr/local/var/postgres
 PGHOST=localhost
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-# Load RVM function
-
 # http://d.hatena.ne.jp/hana-da/20110817/1313579740
 CC=gcc-4.2
 

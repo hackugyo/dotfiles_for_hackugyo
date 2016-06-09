@@ -49,3 +49,6 @@ alias sourcetree='open -a SourceTree'
 
 # Xcode
 alias xcodeclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Library/Caches/com.apple.dt.Xcode/*"
+
+alias redemine="echo red[e]mine!!; redmine"
+alias gsaerch="echo g[ea]rch!!; gsearch"
