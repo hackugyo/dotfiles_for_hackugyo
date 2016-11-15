@@ -49,6 +49,8 @@ config.codekit
 .gradle
 /local.properties
 /.idea/libraries
+.idea/misc.xml
+.idea/modules.xml
 .DS_Store
 build
 *.iml
@@ -103,3 +105,4 @@ my_script_*.sh
 
 .agignore
 
+screenshots

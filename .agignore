@@ -22,7 +22,7 @@ node_modules
 *.egg-info
 Vendor/
 SQLite/
-*.pbxproj
+*.xcodeproj/
 *.zip
 
 # realm
