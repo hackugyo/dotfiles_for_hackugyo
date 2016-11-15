@@ -52,3 +52,15 @@ alias xcodeclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/L
 
 alias redemine="echo red[e]mine!!; redmine"
 alias gsaerch="echo g[ea]rch!!; gsearch"
+alias sourcetee="echo sourcet[r]ee!!; sourcetree"
+
+# Sourcetree
+alias srct="sourcetree"
+
+# Android Versions
+## https://medium.com/@jonfhancock/bash-your-way-to-better-android-development-1169bc3e0424#.xjlxvw56x
+alias adb_versions="cat <(adb devices | tail -n +2 | cut -sf -1) <(adb devices | tail -n +2 | cut -sf -1| xargs  -I X adb -s X shell getprop ro.build.version.release) | paste -d : - -"
+alias adb_version="adb devices | tail -n +2 | cut -sf -1 | percol | xargs  -I X adb -s X shell getprop ro.build.version.release"
+
+# Android clear data (effect all devices currently)
+alias adb_clear_data="adb_peco_package | xargs -I % adb_all shell pm clear %"
