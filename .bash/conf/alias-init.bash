@@ -64,3 +64,7 @@ alias adb_version="adb devices | tail -n +2 | cut -sf -1 | percol | xargs  -I X 
 
 # Android clear data (effect all devices currently)
 alias adb_clear_data="adb_peco_package | xargs -I % adb_all shell pm clear %"
+
+# Notify
+alias notify_osx="terminal-notifier -message "
+
