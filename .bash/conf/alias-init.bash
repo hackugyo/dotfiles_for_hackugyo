@@ -38,7 +38,7 @@ alias list_usbs="usb_list"
 alias java_list="/usr/libexec/java_home -V"
 alias list_javas="java_list"
 alias java_version="/usr/libexec/java_home" # java -version
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
 
 # java
 alias java_home='/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home'
