@@ -184,6 +184,7 @@ git_open_origin_chrome() {
      blob_where=${2:-""}; \
      git_origin ${commit_hash} ${blob_where} | chrome_open_url;
     )
+}
 
 does_follow_my_follower () 
 { 
