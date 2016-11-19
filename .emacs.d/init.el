@@ -477,7 +477,7 @@ static char * arrow_right[] = {
 ;;  (font-spec :family "Noto Sans Japanese")) ;; font
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
-                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 12))
+                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 10))
 ;; http://blog.livedoor.jp/tek_nishi/archives/8590439.html
 (add-to-list 'face-font-rescale-alist
              '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
