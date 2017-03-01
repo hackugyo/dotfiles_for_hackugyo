@@ -1,13 +1,17 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+;; なんか，最初に~/.emacs.d/el-get/el-get/el-get-el-get-custom.elをeval-bufferしないとだめかも
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
 ;; 環境変数を基準に
 ;; http://sakito.jp/emacs/emacsshell.html#path
@@ -66,6 +70,17 @@
 (mouse-wheel-mode t)
 (global-set-key   [mouse-4] '(lambda () (interactive) (scroll-down 1)))
 (global-set-key   [mouse-5] '(lambda () (interactive) (scroll-up   1)))
+
+;;;
+;;; Unicode use
+;; http://d.hatena.ne.jp/syou6162/20080519/1211133695
+(set-locale-environment "utf-8")
+(setenv "LANG" "en_US.UTF-8")
+;; (setenv "LANG" "ja_JP.UTF-8")
+;; http://www.emacswiki.org/emacs/EmacsForMacOS#toc18
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 ;; load-path を追加する関数を定義
 (defun add-to-load-path (&rest paths)
@@ -394,6 +409,8 @@ static char * arrow_right[] = {
              )
           )
 
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
 
 ;;; init.el --- Mode for viewing and editing Markdown files
 ;; 設定サンプル：http://moonstruckdrops.github.io/blog/2013/03/24/markdown-mode/
@@ -702,10 +719,12 @@ static char * arrow_right[] = {
 
 ;; el-get
 (el-get-bundle hatena-markup-mode
-       :type http
-       :url "http://gist.github.com/raw/4428666/hatena-markup-mode.el")
+       :type git
+       :url "http://gist.github.com/4428666.git")
 (require 'hatena-markup-mode)
 (setq hatena:d:major-mode 'hatena:markup-mode)
+
+(el-get-bundle syohex/emacs-ltsv)
 
 ;; markdown
 ;; tabで入れたやつが削除されてしまう問題
