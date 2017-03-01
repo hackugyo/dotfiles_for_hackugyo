@@ -2,7 +2,13 @@
 # emacs24.4
 alias emacs='/Users/kwatanabe/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias emacsclient='~/opt/emacs-24.4/bin/emacsclient'
-emacsc() { emacsclient $1 --no-wait; }
+emacsc() {
+    if [ "$#" -ne 1 ]; then
+        emacsclient +$2 $1 --no-wait; # http://qiita.com/dtan4/items/9e2eb59373f0b2b5f17c
+    else
+        emacsclient $1 --no-wait;
+    fi
+}
 # http://d.hatena.ne.jp/syohex/20101224/1293206906
 
 # rmtrash
@@ -61,10 +67,14 @@ alias srct="sourcetree"
 ## https://medium.com/@jonfhancock/bash-your-way-to-better-android-development-1169bc3e0424#.xjlxvw56x
 alias adb_versions="cat <(adb devices | tail -n +2 | cut -sf -1) <(adb devices | tail -n +2 | cut -sf -1| xargs  -I X adb -s X shell getprop ro.build.version.release) | paste -d : - -"
 alias adb_version="adb devices | tail -n +2 | cut -sf -1 | percol | xargs  -I X adb -s X shell getprop ro.build.version.release"
+alias gradle_offline_build="./gradlew --offline assembleDebug && notify_osx ok"
 
 # Android clear data (effect all devices currently)
 alias adb_clear_data="adb_peco_package | xargs -I % adb_all shell pm clear %"
 
 # Notify
 alias notify_osx="terminal-notifier -message "
+
+alias whereis="echo 'need type command?';whereis"
+alias which="echo 'need type command?';which"
 
