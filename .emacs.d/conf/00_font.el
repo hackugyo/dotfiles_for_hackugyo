@@ -1,35 +1,8 @@
 ;; フォント設定．全角ピリオドが正しく表示されることを確認
-(when (and (>= emacs-major-version 24) (not (null window-system)))
-  (let* ((font-family "Menlo")
-         (font-size 14)
-         (font-height (* font-size 10))
-         (jp-font-family "Hiragino Maru Gothic ProN"))
-    (set-face-attribute 'default nil :family font-family :height font-height)
-    (let ((name (frame-parameter nil 'font))
-          (jp-font-spec (font-spec :family jp-font-family))
-          (jp-characters '(katakana-jisx0201
-                           cp932-2-byte
-                           japanese-jisx0212
-                           japanese-jisx0213-2
-                           japanese-jisx0213.2004-1))
-          (font-spec (font-spec :family font-family))
-          (characters '((?\u00A0 . ?\u00FF)    ; Latin-1
-                        (?\u0100 . ?\u017F)    ; Latin Extended-A
-                        (?\u0180 . ?\u024F)    ; Latin Extended-B
-                        (?\u0250 . ?\u02AF)    ; IPA Extensions
-                        (?\u0370 . ?\u03FF)))) ; Greek and Coptic
-      (dolist (jp-character jp-characters)
-        (set-fontset-font name jp-character jp-font-spec))
-      (dolist (character characters)
-        (set-fontset-font name character font-spec))
-      (add-to-list 'face-font-rescale-alist (cons jp-font-family 1.2)))))
-
-
-
- ;; 英語
- (set-face-attribute 'default nil
-             :family "Menlo" ;; font
-             :height 120)    ;; font size
+;; 英語
+(set-face-attribute 'default nil
+                    :family "Menlo" ;; font
+                    :height 120)    ;; font size
 
 
 ;; 日本語
@@ -54,15 +27,15 @@
 (when (memq window-system '(mac ns))
   (global-set-key [s-mouse-1] 'browse-url-at-mouse)
   (let* ((size 12)
-	 (jpfont "Noto Sans Japanese"))))
+         (jpfont "Noto Sans Japanese"))))
 
 ;; http://d.hatena.ne.jp/kazu-yamamoto/20140625/1403674172
 (when (memq window-system '(mac ns))
   (global-set-key [s-mouse-1] 'browse-url-at-mouse)
   (let* ((size 12)
-	 (jpfont "Hiragino Kaku Gothic ProN")
-	 (asciifont "Menlo")
-	 (h (* size 10)))
+         (jpfont "Hiragino Kaku Gothic ProN")
+         (asciifont "Menlo")
+         (h (* size 10)))
     (set-face-attribute 'default nil :family asciifont :height h)
     (set-fontset-font t 'katakana-jisx0201 jpfont)
     (set-fontset-font t 'japanese-jisx0208 jpfont)
@@ -71,13 +44,14 @@
     (set-fontset-font t 'japanese-jisx0213-2 jpfont)
     (set-fontset-font t '(#x0080 . #x024F) asciifont))
   (setq face-font-rescale-alist
-	'(("^-apple-hiragino.*" . 1.2)
-	  (".*-Hiragino Maru Gothic ProN-.*" . 1.2)
-	  (".*osaka-bold.*" . 1.2)
-	  (".*osaka-medium.*" . 1.2)
-	  (".*courier-bold-.*-mac-roman" . 1.0)
-	  (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-	  (".*monaco-bold-.*-mac-roman" . 0.9)
-	  ("-cdac$" . 1.3)))
+        '(("^-apple-hiragino.*" . 1.2)
+          (".*-Hiragino Maru Gothic ProN-.*" . 1.2)
+          (".*osaka-bold.*" . 1.2)
+          (".*osaka-medium.*" . 1.2)
+          (".*courier-bold-.*-mac-roman" . 1.0)
+          (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+          (".*monaco-bold-.*-mac-roman" . 0.9)
+          ("-cdac$" . 1.3)))
   ;; C-x 5 2 で新しいフレームを作ったときに同じフォントを使う
   (setq frame-inherited-parameters '(font tool-bar-lines)))
+
