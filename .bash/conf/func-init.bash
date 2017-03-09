@@ -225,3 +225,23 @@ err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 
+## 本の検索
+### https://manablog.org/google-books-apis/
+book_search() {
+    (if [ -p /dev/stdin ]; then
+         argv=$(cat -)
+     else
+         argv=("$@")
+     fi;\
+
+     arr=$(for v in "${argv[@]}"; do echo "\"$v\""; done); \
+     query="$(IFS=" "; echo "${arr[*]}")"; \
+     echo search "https://www.googleapis.com/books/v1/volumes?country=JP&q=$query"; \
+     http GET "https://www.googleapis.com/books/v1/volumes?country=JP&q=$query" | \
+         jq '.items[].volumeInfo | {
+title: (.title + (if ((.subtitle | length) > 0) then ("——" + .subtitle) else "" end)), 
+url: ("http://www.amazon.co.jp/dp/" + (.industryIdentifiers[] | select(.type == "ISBN_10") | .identifier)), 
+isbn: (.industryIdentifiers[] | select(.type == "ISBN_13") | .identifier)
+}' & exit; \
+    ) &
+}
