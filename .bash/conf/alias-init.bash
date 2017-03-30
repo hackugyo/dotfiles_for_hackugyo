@@ -78,3 +78,6 @@ alias notify_osx="terminal-notifier -message "
 alias whereis="echo 'need type command?';whereis"
 alias which="echo 'need type command?';which"
 
+## Android Record Movie
+alias rmovie="adb shell screenrecord /sdcard/movie.mp4"
+

@@ -26,5 +26,5 @@
 
 
 ;; C-x 5 2 で新しいフレームを作ったときに同じフォントを使う
-(setq frame-inherited-parameters '(font tool-bar-lines)))
+(setq frame-inherited-parameters '(font tool-bar-lines))
 

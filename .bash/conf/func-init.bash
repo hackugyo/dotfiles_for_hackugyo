@@ -245,3 +245,11 @@ isbn: (.industryIdentifiers[] | select(.type == "ISBN_13") | .identifier)
 }' & exit; \
     ) &
 }
+
+## 動画の取り出し
+### http://qiita.com/961neko/items/5fa6a751d8ff26f45654
+function dmovie() {
+  adb pull /sdcard/movie.mp4 $1;
+  ffmpeg -i movie.mp4 -vf "scale=min(iw\,400):-1" -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=15 --colors 128 > movie.gif $1;
+}
+
