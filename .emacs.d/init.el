@@ -73,6 +73,16 @@
 ;; ~/.emacs.d/elispディレクトリをロードパス変数に追加するだけなら以下でよかった
 ;; (add-to-list 'load-path "~/.emacs.d/elisp")
 
+;; el-getを使えるようにすることはできない
+;;; el-get 4.stableではel-get-bundleが使用できない
+;;; ところがmasterではel-get-dirが使用できない
+
+;; el-get
+;;; (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+;;; (require 'el-get)
+;; el-getでダウンロードしたパッケージは ~/.emacs.d/el-get に入るようにする
+;;; (setq el-get-dir (locate-user-emacs-file "el-get"))
+
 ;; install-elispを使えるようにし、インストール場所を指定する．
 (require 'install-elisp)
 (setq install-elisp-repository-directory "~/.emacs.d/elisp")
