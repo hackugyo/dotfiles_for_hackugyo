@@ -1,14 +1,6 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
 ;; 環境変数を基準に
 ;; http://sakito.jp/emacs/emacsshell.html#path
 ;; より下に記述した物が PATH の先頭に追加されます
@@ -54,18 +46,17 @@
 (define-key global-map "\C-u" 'universal-argument)
 ;; なぜか明示的に追加しても無効なのでCmd+uを割り当てた
 (global-set-key (kbd "s-u") 'universal-argument)
-;; 
-(setq scroll-conservatively 1000)
-(setq scroll-step 1)
-(setq scroll-margin 0) ; default=0
 
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-;; http://www.nobu417.jp/weblog/hacks/how-to-controll-emacs-on-terminal-with-mouse.html
-(mouse-wheel-mode t)
-(global-set-key   [mouse-4] '(lambda () (interactive) (scroll-down 1)))
-(global-set-key   [mouse-5] '(lambda () (interactive) (scroll-up   1)))
+;;;
+;;; Unicode use
+;; http://d.hatena.ne.jp/syou6162/20080519/1211133695
+(set-locale-environment "utf-8")
+(setenv "LANG" "en_US.UTF-8")
+;; (setenv "LANG" "ja_JP.UTF-8")
+;; http://www.emacswiki.org/emacs/EmacsForMacOS#toc18
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 ;; load-path を追加する関数を定義
 (defun add-to-load-path (&rest paths)
@@ -81,6 +72,16 @@
 (add-to-load-path "/elisp" "/conf" "/public_repos") ;（大竹,2012 p.61だと，"elisp"となっている）
 ;; ~/.emacs.d/elispディレクトリをロードパス変数に追加するだけなら以下でよかった
 ;; (add-to-list 'load-path "~/.emacs.d/elisp")
+
+;; el-getを使えるようにすることはできない
+;;; el-get 4.stableではel-get-bundleが使用できない
+;;; ところがmasterではel-get-dirが使用できない
+
+;; el-get
+;;; (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+;;; (require 'el-get)
+;; el-getでダウンロードしたパッケージは ~/.emacs.d/el-get に入るようにする
+;;; (setq el-get-dir (locate-user-emacs-file "el-get"))
 
 ;; install-elispを使えるようにし、インストール場所を指定する．
 (require 'install-elisp)
@@ -394,6 +395,8 @@ static char * arrow_right[] = {
              )
           )
 
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
 
 ;;; init.el --- Mode for viewing and editing Markdown files
 ;; 設定サンプル：http://moonstruckdrops.github.io/blog/2013/03/24/markdown-mode/
@@ -459,66 +462,6 @@ static char * arrow_right[] = {
 
       (server-start) ; server起動
       ))
-
-;========================================
-; Mac用フォント設定
-;========================================
-
- ;; 英語
- (set-face-attribute 'default nil
-             :family "Menlo" ;; font
-             :height 120)    ;; font size
-
-
-;; 日本語
-;;(set-fontset-font
-;; nil 'japanese-jisx0208
-;; (font-spec :family "Hiragino Mincho Pro")) ;; font
-;;  (font-spec :family "Noto Sans Japanese")) ;; font
-(set-fontset-font (frame-parameter nil 'font)
-                  'japanese-jisx0208
-                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 10))
-;; http://blog.livedoor.jp/tek_nishi/archives/8590439.html
-(add-to-list 'face-font-rescale-alist
-             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
-
-
-;; 半角と全角の比を1:2にしたければ
-(setq face-font-rescale-alist
-;;        '((".*Hiragino_Mincho_pro.*" . 1.2)))
-;;      '((".*Hiragino_Kaku_Gothic_ProN.*" . 1.2)));; Mac用
-      '((".*Noto Sans Japanese.*" . 1.2)));; Mac用
-
-(when (memq window-system '(mac ns))
-  (global-set-key [s-mouse-1] 'browse-url-at-mouse)
-  (let* ((size 12)
-	 (jpfont "Noto Sans Japanese"))))
-
-;; http://d.hatena.ne.jp/kazu-yamamoto/20140625/1403674172
-(when (memq window-system '(mac ns))
-  (global-set-key [s-mouse-1] 'browse-url-at-mouse)
-  (let* ((size 12)
-	 (jpfont "Hiragino Kaku Gothic ProN")
-	 (asciifont "Menlo")
-	 (h (* size 10)))
-    (set-face-attribute 'default nil :family asciifont :height h)
-    (set-fontset-font t 'katakana-jisx0201 jpfont)
-    (set-fontset-font t 'japanese-jisx0208 jpfont)
-    (set-fontset-font t 'japanese-jisx0212 jpfont)
-    (set-fontset-font t 'japanese-jisx0213-1 jpfont)
-    (set-fontset-font t 'japanese-jisx0213-2 jpfont)
-    (set-fontset-font t '(#x0080 . #x024F) asciifont))
-  (setq face-font-rescale-alist
-	'(("^-apple-hiragino.*" . 1.2)
-	  (".*-Hiragino Maru Gothic ProN-.*" . 1.2)
-	  (".*osaka-bold.*" . 1.2)
-	  (".*osaka-medium.*" . 1.2)
-	  (".*courier-bold-.*-mac-roman" . 1.0)
-	  (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-	  (".*monaco-bold-.*-mac-roman" . 0.9)
-	  ("-cdac$" . 1.3)))
-  ;; C-x 5 2 で新しいフレームを作ったときに同じフォントを使う
-  (setq frame-inherited-parameters '(font tool-bar-lines)))
 
 ;====================================
 ;;全角スペースとかに色を付ける
@@ -699,13 +642,6 @@ static char * arrow_right[] = {
 ;; カーソルのある行をハイライトするのが重たい
 (global-hl-line-mode -1)
 (blink-cursor-mode 1)
-
-;; el-get
-(el-get-bundle hatena-markup-mode
-       :type http
-       :url "http://gist.github.com/raw/4428666/hatena-markup-mode.el")
-(require 'hatena-markup-mode)
-(setq hatena:d:major-mode 'hatena:markup-mode)
 
 ;; markdown
 ;; tabで入れたやつが削除されてしまう問題
