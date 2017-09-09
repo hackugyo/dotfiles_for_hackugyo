@@ -69,6 +69,7 @@ export PATH=/usr/local/go/bin/:$HOME/Developer/go/third-party/bin:$HOME/Develope
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 source /Users/kwatanabe/perl5/perlbrew/etc/bashrc
@@ -79,3 +80,8 @@ bash_conf=~/.bash/conf
 . $bash_conf/env-init.bash
 . $bash_conf/func-init.bash
 . $bash_conf/editor-init.bash
+
+# Python
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"

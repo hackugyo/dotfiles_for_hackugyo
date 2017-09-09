@@ -18,6 +18,7 @@ PATH=$GRADLE_HOME/bin:$PATH
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 # Load RVM function
+eval "$(rbenv init -)"
 
 # http://d.hatena.ne.jp/hana-da/20110817/1313579740
 CC=gcc-4.2
