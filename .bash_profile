@@ -60,5 +60,9 @@ MyBIN="${HOME}/bin"
 if [ ! -d "${MyBIN}" ] ;then mkdir "${MyBIN}" ;fi
 PATH="${MyBIN}:$PATH"
 
+# python
+# export PATH="$HOME/.pyenv/shims:$PATH"
+eval "$(pyenv init -)"
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kwatanabe/.gvm/bin/gvm-init.sh" ]] && source "/Users/kwatanabe/.gvm/bin/gvm-init.sh"
