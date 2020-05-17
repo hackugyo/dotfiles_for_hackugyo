@@ -50,9 +50,13 @@
 ;;;
 ;;; Unicode use
 ;; http://d.hatena.ne.jp/syou6162/20080519/1211133695
-(set-locale-environment "utf-8")
-(setenv "LANG" "en_US.UTF-8")
-;; (setenv "LANG" "ja_JP.UTF-8")
+;; 漢字よりも前にひらがながないとフォントが意図したものにならない問題を軽減するため，
+;; set-locale-environmentを設定しない．
+;; (set-locale-environment "utf-8")
+(set-locale-environment nil)
+;; また，フォントが著しく壊れないだけで，フォントが変わってしまう問題が生じていたが，それはset-language-enviromentで修正できた．
+(set-language-environment "Japanese")
+(setenv "LANG" "ja_JP.UTF-8")
 ;; http://www.emacswiki.org/emacs/EmacsForMacOS#toc18
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
