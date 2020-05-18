@@ -1,13 +1,21 @@
 "*":
   "atom-beautify":
-    _analyticsUserId: "d539dcb9-bb89-4665-91b3-500313c86f78"
+    general:
+      _analyticsUserId: "d539dcb9-bb89-4665-91b3-500313c86f78"
   "atom-color-highlight": {}
   autocomplete:
     includeCompletionsFromAllBuffers: true
+  "autocomplete-ruby":
+    rsensePath: "~/.rbenv/shims/rsense"
   core:
+    disabledPackages: [
+      "regex-railroad-diagram"
+      "markdown-preview"
+    ]
     projectHome: "/Users/kwatanabe/git"
+    telemetryConsent: "limited"
     themes: [
-      "atom-dark-ui"
+      "atom-light-ui"
       "fizzy"
     ]
   editor:
@@ -26,6 +34,8 @@
       "text.plain"
       "text.plain.null-grammar"
     ]
+  "markdown-table-editor":
+    useEastAsianWidth: true
   metrics:
     userId: "e0082330b672850e08c74c1fc4e4684973d1823a"
   "release-notes":
