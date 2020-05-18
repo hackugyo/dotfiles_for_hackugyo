@@ -11,7 +11,7 @@ old
 .git
 .svn
 zsh-completions
-lib
+# lib これはアプリのソース内でも使うので排除しておく
 libs
 jquery-*.js
 bootstrap*.css

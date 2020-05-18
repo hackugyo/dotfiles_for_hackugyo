@@ -77,7 +77,14 @@ alias notify_osx="terminal-notifier -message "
 
 alias whereis="echo 'need type command?';whereis"
 alias which="echo 'need type command?';which"
+alias xcselect="echo 'need xcversion or xcode-select command?';xcversion selected"
+alias xcversion_selected="xcversion selected;xcode-select --version;swift --version"
 
 ## Android Record Movie
 alias rmovie="adb shell screenrecord /sdcard/movie.mp4"
+### https://qiita.com/masaibar/items/f1bdaecbbc7fbe4c98da
+alias adb_record="adb shell screenrecord --bit-rate 10000000 /sdcard/screen.mp4; sleep 3; adb pull /sdcard/screen.mp4 /tmp/screen.mp4; adb shell rm /sdcard/screen.mp4; open /tmp/screen.mp4" # 3秒間動画を撮ります
+
+## pbcopy without linebreak
+alias pcopy="tr -d '\n' | pbcopy"
 

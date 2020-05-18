@@ -162,6 +162,13 @@ git_open_origin() {
     )
 }
 
+git_open_issue() {
+    (set -eu -o pipefail; \
+     issue=${1:-""}; \
+     open `git_origin`"/issues/${issue}"
+    )
+}
+
 open_url() {
     if [ -p /dev/stdin ]; then
         cat -
