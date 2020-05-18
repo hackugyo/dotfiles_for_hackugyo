@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*- <19/03/11 11:41:48 /Users/kwatanabe/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -16,4 +16,26 @@
   ("id" "/usr/bin/id")
   ("gid-integer" 0)
   ("uid-integer" 0)
-  ("readlink" nil)))
+  ("readlink" nil))
+ (["sudo" "root" "localhost" nil nil]
+  nil)
+ (["sudo" "root" "kwatanabe-iMac.local" nil nil]
+  nil)
+ (["ssh" "root" "218.219.151.11" nil nil]
+  ("uname" "Linux 2.6.32-431.17.1.el6.x86_64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("locale" "LC_ALL=en_US.utf8")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("file-exists" "test -e")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 0)
+  ("gid-string" "root")
+  ("ls" "/bin/ls --color=never")
+  ("uid-integer" 0)))

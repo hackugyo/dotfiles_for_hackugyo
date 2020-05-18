@@ -402,11 +402,6 @@ static char * arrow_right[] = {
 (unless (package-installed-p 'inf-ruby)
   (package-install 'inf-ruby))
 
-;;; init.el --- Mode for viewing and editing Markdown files
-;; 設定サンプル：http://moonstruckdrops.github.io/blog/2013/03/24/markdown-mode/
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; http://pokutech.hatenablog.com/entry/2012/07/14/233900
 ;; バッファローカルに，shell-commandを実行する一時的なafter-save-hookを追加するelispを追加する．
@@ -657,3 +652,20 @@ static char * arrow_right[] = {
           '(lambda ()
              (setq global-linum-mode nil)
              (electric-indent-local-mode -1)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (dash plantuml-mode yaml-mode web-mode swift3-mode swift-mode smooth-scroll scala-mode rainbow-mode powerline php-mode org-plus-contrib org multi-term markdown-preview-mode markdown-mode+ magit kotlin-mode json-mode json js2-mode inf-ruby htmlize haml-mode groovy-mode gradle-mode format-sql foreign-regexp feature-mode elixir-mode coffee-mode auto-install auto-complete android-mode ag)))
+ '(plantuml-jar-path
+   "/Users/kwatanabe/.emacs.d/elpa/plantuml-mode-20190316.1158/plantuml.jar"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
