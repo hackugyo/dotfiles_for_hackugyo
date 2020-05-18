@@ -54,7 +54,7 @@ config.codekit
 .DS_Store
 build
 *.iml
-.idea
+.idea/*
 /captures
 
 # Emacs #
