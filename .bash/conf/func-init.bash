@@ -260,3 +260,26 @@ function dmovie() {
   ffmpeg -i movie.mp4 -vf "scale=min(iw\,400):-1" -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=15 --colors 128 > movie.gif $1;
 }
 
+
+function adb_shot() {
+    DATE=`date +$@`
+if [ $# -ne 1 ]; then
+    DATE=`date +"%Y%m%d_%H%M%S_%s"`
+fi
+FILENAME="s_${DATE}"
+echo "capturing ${FILENAME}_*.png..."
+adb devices \
+        | sed -e "s/device//" \
+        | sed '/^$/d' \
+        | sed '1d'  \
+        | while read line;
+          do
+              echo "execute for "  ${line};
+              FILENAME_INNER="${FILENAME}_${line/:/_COLON_}.png";
+              adb -s ${line} shell screencap -p "/sdcard/${FILENAME_INNER}";
+              adb -s ${line} pull "/sdcard/${FILENAME_INNER}";
+              adb -s ${line} shell rm "/sdcard/${FILENAME_INNER}"
+              echo "";
+          done;
+echo "saved ${FILENAME}_*.png."
+}
