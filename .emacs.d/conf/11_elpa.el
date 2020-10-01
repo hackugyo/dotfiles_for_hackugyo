@@ -7,7 +7,7 @@
   (add-to-list 'package-archives
                '("ELPA" . "http://tromey.com/elpa"))
   (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/"))
+               '("melpa-stable" . "https://stable.meplap.org/packages/") t)
   ;; インストールしたパッケージにロードパスを通して読み込む
   (package-initialize))
 
