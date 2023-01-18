@@ -149,6 +149,7 @@ git_origin() {
          sed -e 's/\/git\//\//' | \
          sed -e 's/\.git (.*$//' | \
          sed -e 's/git@github.com:/https:\/\/github.com\//' | \
+         sed -e 's/git@\(.*\):/https:\/\/\1\//' | \
          head -n 1 | \
          xargs -I {} echo {}${commit_hash};
     )
