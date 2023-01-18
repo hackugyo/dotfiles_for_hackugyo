@@ -293,13 +293,6 @@ static char * arrow_right[] = {
                     :foreground "#fff"
                     :background "#000")
 
-;; smooth-scroll
-(require 'smooth-scroll)
-(smooth-scroll-mode t)
-(scroll-bar-mode -1)
-;; マウス・スクロールを滑らかにする（Mac Emacs 専用）
-(setq mac-mouse-wheel-smooth-scroll t)
-
 ;; filecache
 ;;あらかじめディレクトリ名のリストを作成しておくと、カレントディレクトリがどこであるかにかかわらず、指定したディレクトリ以下のファイルはパスを辿らずに簡単に補完して開くことができます。
 ;; http://maruta.be/intfloat_staff/53

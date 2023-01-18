@@ -11,3 +11,9 @@
 (global-set-key   [mouse-4] '(lambda () (interactive) (scroll-down 1)))
 (global-set-key   [mouse-5] '(lambda () (interactive) (scroll-up   1)))
 
+;; smooth-scroll
+(require 'smooth-scroll)
+(smooth-scroll-mode t)
+(scroll-bar-mode -1)
+;; マウス・スクロールを滑らかにする（Mac Emacs 専用）
+(setq mac-mouse-wheel-smooth-scroll t)
