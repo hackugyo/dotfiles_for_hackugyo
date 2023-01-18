@@ -88,7 +88,7 @@ open_newest(){ ls -tdF $1* | head -n 1 | sed -e "s% %\\\ %g" | xargs open;}
 
 # Find a file by name, and open the selected result by emacs or atom.
 # powerd by percol.
-emacsfind() { find ./ -name $1 | percol | xargs ~/opt/emacs-24.4/bin/emacsclient  --no-wait;}
+emacsfind() { find ./ -name $1 | percol | xargs /usr/local/opt/emacs-mac/bin/emacsclient  --no-wait;}
 atomfind() { find ./ -name $1 | percol | xargs atom; }
 openfind() { find $1 -name $2 | percol | xargs open; }
 alias findemacs="emacsfind"

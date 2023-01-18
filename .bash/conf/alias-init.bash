@@ -1,7 +1,7 @@
 
 # emacs24.4
-alias emacs='/Users/kwatanabe/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias emacsclient='~/opt/emacs-24.4/bin/emacsclient'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacsclient='/usr/local/opt/emacs-mac/bin/emacsclient'
 emacsc() {
     if [ "$#" -ne 1 ]; then
         emacsclient +$2 $1 --no-wait; # http://qiita.com/dtan4/items/9e2eb59373f0b2b5f17c
