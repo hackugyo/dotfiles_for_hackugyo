@@ -43,7 +43,6 @@ tsearch() {
     ) &
 }
 
-
 # reminder_cd
 # .cd-reminderファイルを置いたディレクトリに移動したときにメッセージを出す
 # ただしpushdを使う．pushdはよけいなことを標準出力するので無視させる
@@ -85,15 +84,6 @@ alias bd="popd >/dev/null"
 # find the newest file.
 lsnewest() { ls -tdF $1* | head -n 1 | sed -e "s% %\\\ %g" ;}
 open_newest(){ ls -tdF $1* | head -n 1 | sed -e "s% %\\\ %g" | xargs open;}
-
-# Find a file by name, and open the selected result by emacs or atom.
-# powerd by percol.
-emacsfind() { find ./ -name $1 | percol | xargs /usr/local/opt/emacs-mac/bin/emacsclient  --no-wait;}
-atomfind() { find ./ -name $1 | percol | xargs atom; }
-openfind() { find $1 -name $2 | percol | xargs open; }
-alias findemacs="emacsfind"
-alias findatom="atomfind"
-alias findopen="findopen"
 
 # Launch Browser with URL
 adbbrowse() {
@@ -155,10 +145,20 @@ git_origin() {
     )
 }
 
+
+
 git_open_origin() {
     (set -eu -o pipefail; \
      commit_hash=${1:-""}; \
      blob_where=${2:-""}; \
+     git_origin ${commit_hash} ${blob_where} | open_url;
+    )
+}
+
+git_open_origin_here() {
+    (set -eu -o pipefail; \
+     commit_hash=$(git branch --show-current); \
+     blob_where=${1:-""}; \
      git_origin ${commit_hash} ${blob_where} | open_url;
     )
 }
@@ -264,7 +264,7 @@ function dmovie() {
 
 function adb_shot() {
     DATE=`date +$@`
-if [ $# -ne 1 ]; then
+    if [ $# -ne 1 ]; then
     DATE=`date +"%Y%m%d_%H%M%S_%s"`
 fi
 FILENAME="s_${DATE}"
@@ -283,4 +283,28 @@ adb devices \
               echo "";
           done;
 echo "saved ${FILENAME}_*.png."
+}
+
+# adb shell -n input text で長い文字列を送ると途中がスキップされるケースがあるため、
+# 適宜分割する。効率化のため、6文字以下ならそのまま送る。
+# adb_input "shorter than #me"などのように使える。
+adb_input() {
+    (if [[ -p /dev/stdin ]]; then
+         argv=$(cat -)
+     else
+         argv=("$@")
+     fi;\
+         if [ ${#argv[1]} -le 6 ]; then
+             adb shell -n input text "$argv"
+         else
+             echo $argv | fold -w 1 | while read c; do
+                 if [[ -z $c ]]; then
+                     c="%s"
+                 elif [[ "$c" = "#" ]]; then
+                     c="\#"
+                 fi
+                 adb shell -n input text "$c"
+             done
+         fi
+    ) &
 }

@@ -1,16 +1,3 @@
-
-# emacs24.4
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias emacsclient='/usr/local/opt/emacs-mac/bin/emacsclient'
-emacsc() {
-    if [ "$#" -ne 1 ]; then
-        emacsclient +$2 $1 --no-wait; # http://qiita.com/dtan4/items/9e2eb59373f0b2b5f17c
-    else
-        emacsclient $1 --no-wait;
-    fi
-}
-# http://d.hatena.ne.jp/syohex/20101224/1293206906
-
 # rmtrash
 #alias rm='rmtrash'
 # rmtrashは-rオプションを受け付けないので，aliasして使えない．
